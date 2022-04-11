@@ -17,6 +17,21 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.addEventListener('click', (event) => {
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
   });
+  summary.addEventListener('mouseenter', (event) => {    
+    event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    if(event.currentTarget.classList.contains('header__menu-item') && !event.currentTarget.closest('details').hasAttribute('open')){
+      event.currentTarget.closest('details').setAttribute('open', '');      
+    } 
+    summary.parentElement.addEventListener('mouseleave', (event) => {
+    if(event.currentTarget.classList.contains('header__menu-item') && !event.currentTarget.closest('details').hasAttribute('open')){
+      return
+    } else{
+      event.currentTarget.closest('details').removeAttribute('open', '');      
+    }
+  });   
+  });
+    
+
 
   if (summary.closest('header-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);

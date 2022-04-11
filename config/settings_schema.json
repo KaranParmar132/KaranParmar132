@@ -83,6 +83,38 @@
         "id": "gradient_background_2",
         "type": "color_background",
         "label": "t:settings_schema.colors.settings.gradient_background_2.label"
+      },
+      {
+        "type": "header",
+        "content": "Menu Link"
+      },
+      {
+        "type": "color",
+        "id": "menu_text",
+        "default": "#54301a",
+        "label": "Text Color"        
+      },
+      {
+        "type": "color",
+        "id": "menu_text_hover",
+        "default": "#54301a",
+        "label": "Text Color Hover"        
+      },
+      {
+        "type": "header",
+        "content": "Button"
+      },
+      {
+        "type": "color",
+        "id": "button_text",
+        "default": "#ffffff",
+        "label": "Button Text"        
+      },
+      {
+        "type": "color",
+        "id": "button_background",
+        "default": "#323232",
+        "label": "Button Background"        
       }
     ]
   },
