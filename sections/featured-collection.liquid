@@ -88,7 +88,7 @@
             <span class="slider-counter--total">{{ products_to_display }}</span>
           </div>
           <div class="slideshow__control-wrapper">
-              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
+              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ products_to_display }}" aria-controls="Slider-{{ section.id }}">
                 <span class="dot"></span>
               </button>           
           </div>
