@@ -87,6 +87,9 @@
             <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
             <span class="slider-counter--total">{{ products_to_display }}</span>
           </div>
+          <div class="slideshow__control-wrapper">
+            <span class="dot"></span>            
+          </div>
           <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}" aria-controls="Slider-{{ section.id }}">{% render 'icon-caret' %}</button>
         </div>
       {%- endif -%}
