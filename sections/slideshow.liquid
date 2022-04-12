@@ -80,11 +80,11 @@
     data-speed="{{ section.settings.change_slides_speed }}"
   >
     {%- for block in section.blocks -%}        
-      <div class="slideshow__slide grid__item grid--1-col slider__slide"
+      <div class="slideshow__slide grid__item grid--1-col {% if section.settings.slider_effact == "slide" %}slider__slide{% else %}slider__fade{% endif %}"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"
-        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
+        aria-roledescription="fase"
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
@@ -258,6 +258,22 @@
       ],
       "default": "adapt_image",
       "label": "t:sections.slideshow.settings.slide_height.label"
+    },
+   {
+      "type": "select",
+      "id": "slider_effact",
+      "options": [
+        {
+          "value": "slide",
+          "label": "slide"
+        },
+        {
+          "value": "fade",
+          "label": "fade"
+        }
+      ],
+      "default": "slide",
+      "label": "Slide Effact"
     },
     {
       "type": "select",

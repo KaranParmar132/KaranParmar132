@@ -86,3 +86,14 @@
   }
 }
 
+.blog__posts {
+  --grid-desktop-horizontal-spacing: 2.4rem;
+  --card-text-alignment: left;
+}
+.blog__subheading{
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.blog__posts .full-unstyled-link::after{
+display: none;
+}

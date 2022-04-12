@@ -40,7 +40,7 @@
 
 @media screen and (max-width: 989px) {
   .collection .slider--tablet.product-grid {
-    scroll-padding-left: 1.5rem;
+    scroll-padding-left: 0;
   }
 }
 
@@ -56,6 +56,10 @@
   margin-bottom: 1rem;
 }
 
+
+.collection slider-component.slider-component-full-width {
+  padding: 0 4rem;
+}
 @media screen and (min-width: 990px) {
   .collection__title--desktop-slider .title {
     margin-bottom: 2.5rem;
@@ -67,6 +71,9 @@
 
   .collection slider-component:not(.page-width-desktop) {
     padding: 0;
+  }
+  .collection slider-component.slider-component-full-width {
+    padding: 0 4rem;
   }
 
   .collection--full-width slider-component:not(.slider-component-desktop) {

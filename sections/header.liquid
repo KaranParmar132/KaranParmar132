@@ -99,7 +99,7 @@
   <header class="header header--{{ section.settings.logo_position }} page-width-full{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     <div class="header__icons">
     {%- if section.settings.menu != blank -%}
-      <header-drawer data-breakpoint="tablet">
+      <header-drawer data-breakpoint="tablet" class="dropdown">
         <details id="Details-menu-drawer-container" class="menu-drawer-container">
           <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
             <span>
@@ -266,9 +266,7 @@
           </div>
         </details>
       </header-drawer>
-    {%- endif -%}
-
-   
+    {%- endif -%}  
       <details-modal class="header__search large-up-hide">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -341,7 +339,12 @@
           </div>
         </details>
       </details-modal>
-    
+      <ul class="list-menu list-menu--inline list-menu--extra medium-down-hide" role="list">
+      <li><a href="/pages/rewards" class="list-menu__item link link--text focus-inset">
+        <span>Rewards</span>
+        </a>
+      </li>
+      </ul>
   </div>
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">

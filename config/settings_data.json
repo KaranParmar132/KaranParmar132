@@ -11,15 +11,15 @@
     "gradient_background_1": "",
     "colors_background_2": "#dfdfdf",
     "gradient_background_2": "",
-    "type_header_font": "avenir_next_n5",
+    "type_header_font": "avenir_next_n4",
     "heading_scale": 100,
     "type_body_font": "avenir_next_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1300,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
-    "buttons_border_thickness": 2,
+    "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
     "buttons_radius": 0,
     "buttons_shadow_opacity": 0,
@@ -42,7 +42,7 @@
     "inputs_shadow_blur": 5,
     "card_style": "standard",
     "card_image_padding": 0,
-    "card_text_alignment": "left",
+    "card_text_alignment": "center",
     "card_color_scheme": "background-2",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
@@ -112,7 +112,7 @@
           "a78fcc7b-181c-4099-a817-00f3c7dc3f38": {
             "type": "announcement",
             "settings": {
-              "text": "FREE SHIPPING ON ALL U.S. ORDERS $75+",
+              "text": "HAPPY EARTH MONTH! 🌎 FREE SHIPPING ON ALL ORDERS 75+",
               "color_scheme": "accent-2",
               "link": "shopify:\/\/collections"
             }
@@ -145,49 +145,67 @@
           "footer-1": {
             "type": "link_list",
             "settings": {
-              "heading": "Customer Care",
-              "menu": "customer-care"
+              "heading": "",
+              "menu": "customer-care",
+              "show_social": false
             }
           },
           "footer-0": {
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "contact"
+              "menu": "contact",
+              "show_social": true
+            }
+          },
+          "6da277c0-0036-4725-9d64-2621d7cf7d86": {
+            "type": "newsletter",
+            "settings": {
+              "newsletter_heading": "",
+              "newsletter_text": "Sign up to receive a 15% off discount code via email for your first order.",
+              "klaviyo": ""
             }
           },
           "footer-2": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "heading": "Our mission",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>",
+              "show_social": false
             }
           },
           "0f9ed969-1852-44af-8133-96f6b3cb433e": {
             "type": "link_list",
+            "disabled": true,
             "settings": {
               "heading": "Quick links",
-              "menu": "footer"
+              "menu": "footer",
+              "show_social": false
             }
           }
         },
         "block_order": [
           "footer-1",
           "footer-0",
+          "6da277c0-0036-4725-9d64-2621d7cf7d86",
           "footer-2",
           "0f9ed969-1852-44af-8133-96f6b3cb433e"
         ],
         "settings": {
           "color_scheme": "background-2",
-          "newsletter_enable": true,
+          "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails",
+          "newsletter_text": "",
           "show_social": true,
           "enable_country_selector": false,
           "enable_language_selector": false,
-          "payment_enable": true,
-          "margin_top": 48,
-          "padding_top": 36,
-          "padding_bottom": 36
+          "payment_enable": false,
+          "copyright": "<p><a href=\"https:\/\/rahua.com\/\">© RAHUA<\/a> Copyright 2022 © Amazon Beauty ® Inc. DBA Rahua ® All Rights Reserved<\/p>",
+          "extra_content": "<ul class=\"list-unstyled\">\n<li>\n<a href=\"\/pages\/terms-and-conditions\" class=\"link link--text\">TERMS &amp; CONDITIONS<\/a>\n<\/li>\n<li>\n<a href=\"\/pages\/privacy-policy\" class=\"link link--text\">PRIVACY POLICY<\/a> <\/li>\n<\/ul>",
+          "margin_top": 4,
+          "padding_top": 24,
+          "padding_bottom": 4
         }
       },
       "main-password-header": {

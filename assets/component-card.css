@@ -230,6 +230,20 @@
     text-decoration: underline;
     text-underline-offset: 0.3rem;
   }
+  .card-wrapper .price--main{
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    -webkit-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+
+.card-wrapper:hover .price--main{
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
 }
 
 .card--standard.card--media .card__inner .card__information,
@@ -291,7 +305,7 @@
 }
 
 .card-information > .price {
-  color: rgb(var(--color-foreground));
+  color: rgba(var(--color-foreground),.7);
 }
 
 .card-information > .rating {
@@ -310,4 +324,41 @@
 
 .card-article-info {
   margin-top: 1rem;
+}
+
+.qucik-add-qty{
+  display: inline-flex;
+  justify-content: center;
+  gap: .7rem;
+  flex-wrap: wrap;
+}
+.qucik-add-qty .quantity{
+  width: 5.8rem;
+  min-height: 3.3rem;
+  height: 3.3rem;
+  border-color: #ced4da;
+  padding: .375rem .75rem;
+}
+.qucik-add-qty .button{
+  font-size: 1.3rem;
+  min-height: 3.3rem;
+  padding: .9rem 1.8rem;
+  min-width: inherit;
+}
+
+@media screen and (max-width: 749px) {
+  .qucik-add-qty{    
+    width: 100%;
+    max-width: 14.5rem;
+    gap: 1.5rem;
+  }
+  .qucik-add-qty .quantity{
+    width: 100%;
+    min-height: 2.3rem;
+    height: 2.3rem;
+  }
+  .qucik-add-qty .button{
+    width: 100%;
+    padding: 0.9rem .2rem;
+  }
 }

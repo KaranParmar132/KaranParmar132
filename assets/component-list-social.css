@@ -1,7 +1,7 @@
 .list-social {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  /*justify-content: flex-end;*/
 }
 
 @media only screen and (max-width: 749px) {
@@ -11,17 +11,26 @@
 }
 
 .list-social__item .icon {
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .list-social__link {
   align-items: center;
   display: flex;
-  padding: 1.3rem;
+  padding: 1.4rem 1.8rem;  
   color: rgb(var(--color-foreground));
 }
 
 .list-social__link:hover .icon {
   transform: scale(1.07);
+}
+
+.footer__list-social{
+  display: flex;
+  border-top: 1px solid currentColor;  
+  margin-top: 1.6rem;
+}
+.footer-block .footer__list-social{
+  display: inline-flex;
 }
