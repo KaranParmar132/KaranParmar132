@@ -1188,3 +1188,33 @@ a.product__text {
   margin-left: 1.2rem;
   flex-shrink: 0;
 }
+
+/*== Breadcrumbs ===*/
+.breadcrumbs {
+  margin: 0 0 2em;
+  font-style: italic;
+}
+
+.breadcrumbs__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs__item {
+  display: inline-block;
+}
+.breadcrumbs__link {
+  text-decoration: underline;
+}
+
+.breadcrumbs__link[aria-current="page"] {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.breadcrumbs__link[aria-current="page"]:hover,
+.breadcrumbs__link[aria-current="page"]:focus {
+  text-decoration: underline;
+}

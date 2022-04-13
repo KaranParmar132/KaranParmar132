@@ -6,6 +6,7 @@
 {%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
   {%- style -%}
   @media screen and (max-width: 749px) {
+    {%- if section.settings.slider_effact == "slide" -%}
     #Slider-{{ section.id }}::before,
     #Slider-{{ section.id }} .media::before,
     #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
@@ -17,6 +18,18 @@
       content: '';
       display: block;
     }
+    {%- else -%}
+    #Slider-{{ section.id }}::before,
+    #Slider-{{ section.id }} .media::before {
+      {% if section.blocks.first.settings.image_mobile == blank %}
+      padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+      {%- else -%}
+      padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image_mobile.aspect_ratio | times: 100 }}%;
+      {% endif %}
+      content: '';
+      display: block !important;
+    }
+    {%- endif -%}
   }
 
   @media screen and (min-width: 750px) {
@@ -157,7 +170,7 @@
             {%- endif -%}
             {%- if block.settings.button_label != blank -%}
               <div class="banner__buttons">
-                <a{% if block.settings.link %} href="{{ block.settings.link }}"{% else %} role="link" aria-disabled="true"{% endif %} class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}">{{ block.settings.button_label | escape }}</a>
+                <a{% if block.settings.link %} href="{{ block.settings.link }}"{% else %} role="link" aria-disabled="true"{% endif %} class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"><span>{{ block.settings.button_label | escape }}</span></a>
               </div>
             {%- endif -%}
           </div>

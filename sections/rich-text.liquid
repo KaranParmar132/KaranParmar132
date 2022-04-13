@@ -33,7 +33,7 @@
             <div class="rich-text__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
           {%- when 'button' -%}
             <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="{% if block.settings.button_style_secondary == 'link' %}link underlined-link{% elsif block.settings.button_style_secondary == 'solid' %}button{% else %}button button--secondary{% endif %}" {{ block.shopify_attributes }}>
-              {{ block.settings.button_label | escape }}
+              <span>{{ block.settings.button_label | escape }}</span>
             </a>
         {%- endcase -%}
       {%- endfor -%}

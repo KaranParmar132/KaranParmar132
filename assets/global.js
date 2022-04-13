@@ -539,6 +539,7 @@ class SliderComponent extends HTMLElement {
     super();
     this.slider = this.querySelector('[id^="Slider-"]');
     this.sliderItems = this.querySelectorAll('[id^="Slide-"]');
+    this.sliderControlWrapper = this.querySelector('.slider-buttons');
     this.enableSliderLooping = false;
     this.currentPageElement = this.querySelector('.slider-counter--current');
     this.pageTotalElement = this.querySelector('.slider-counter--total');
@@ -546,14 +547,21 @@ class SliderComponent extends HTMLElement {
     this.nextButton = this.querySelector('button[name="next"]');
 
     if (!this.slider || !this.nextButton) return;
+    if (!this.sliderControlWrapper) return;
+    this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
+   // if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
 
     this.initPages();
     const resizeObserver = new ResizeObserver(entries => this.initPages());
     resizeObserver.observe(this.slider);
 
+    this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link_1'));
+    this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
+  
     this.slider.addEventListener('scroll', this.update.bind(this));
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
+   // this.setSlideVisibility();
   }
 
   initPages() {
@@ -585,10 +593,8 @@ class SliderComponent extends HTMLElement {
         currentElement: this.sliderItemsToShow[this.currentPage - 1]
       }}));
     }
-
-    if (this.enableSliderLooping) return;
-
-    if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
+    
+     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
       this.prevButton.setAttribute('disabled', 'disabled');
     } else {
       this.prevButton.removeAttribute('disabled');
@@ -599,6 +605,21 @@ class SliderComponent extends HTMLElement {
     } else {
       this.nextButton.removeAttribute('disabled');
     }
+
+    if (this.enableSliderLooping) return;
+
+    this.sliderControlButtons = this.querySelectorAll('.slider-counter__link_1');
+    this.prevButton.removeAttribute('disabled');
+
+    if (!this.sliderControlButtons.length) return;
+
+    this.sliderControlButtons.forEach(link => {
+      link.classList.remove('slider-counter__link--active');
+      link.removeAttribute('aria-current');
+    });
+    //console.log(this.sliderItemsToShow[this.currentPage - 1]);
+    this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
+    this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
   }
 
   isSlideVisible(element, offset = 0) {
@@ -606,12 +627,20 @@ class SliderComponent extends HTMLElement {
     return (element.offsetLeft + element.clientWidth) <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
   }
 
-  onButtonClick(event) {
+  onButtonClick(event) {    
     event.preventDefault();
-    const step = event.currentTarget.dataset.step || 1;
+    const step = event.currentTarget.dataset.step || 5;
     this.slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (step * this.sliderItemOffset) : this.slider.scrollLeft - (step * this.sliderItemOffset);
     this.slider.scrollTo({
       left: this.slideScrollPosition
+    });
+  }
+  linkToSlide(event) {
+    event.preventDefault();
+    //console.log(this.sliderControlLinksArray.indexOf(event.currentTarget));
+    const slideScrollPosition_1 = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 5 - this.currentPage);
+    this.slider.scrollTo({
+      left: slideScrollPosition_1
     });
   }
 }

@@ -1372,7 +1372,12 @@ button.shopify-payment-button__button--unbranded {
   overflow: hidden;
   text-transform: uppercase;
 }
-
+.button span,
+.shopify-challenge__button span,
+.customer button span{
+  z-index: 1;
+  position: relative;
+}
 .button:before,
 .shopify-challenge__button:before,
 .customer button:before,
@@ -1385,7 +1390,7 @@ button.shopify-payment-button__button--unbranded {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   background-color:rgba(var(--color-bg), 1);
   -webkit-transform: scale(1,1);

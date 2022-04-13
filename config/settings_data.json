@@ -18,7 +18,7 @@
     "page_width": 1300,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
-    "spacing_grid_vertical": 8,
+    "spacing_grid_vertical": 40,
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
     "buttons_radius": 0,
@@ -127,6 +127,19 @@
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "da6732a6-fe64-4cb9-8c01-35d06afed747": {
+            "type": "image",
+            "settings": {
+              "name": "Shop All",
+              "image": "shopify:\/\/shop_images\/MC_SA_WINNER_logo_1.png",
+              "link": "shopify:\/\/collections"
+            }
+          }
+        },
+        "block_order": [
+          "da6732a6-fe64-4cb9-8c01-35d06afed747"
+        ],
         "settings": {
           "color_scheme": "background-1",
           "logo": "shopify:\/\/shop_images\/RAHUA-LOGO-RainforestGrownBeauty-Horizontal-BROWN-FINAL_27d3c98f-e078-4ae5-94e4-ab46050d13ab.png",
@@ -136,7 +149,9 @@
           "menu_type_desktop": "mega",
           "show_line_separator": true,
           "enable_sticky_header": true,
-          "margin_bottom": 0
+          "margin_bottom": 0,
+          "extra_label": "Rewards",
+          "extra_link": "shopify:\/\/pages\/reward"
         }
       },
       "footer": {

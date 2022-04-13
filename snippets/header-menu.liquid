@@ -62,7 +62,8 @@
                 {% render 'icon-caret' %}
                 </summary>
                 <div id="MegaMenu-Content-{{ forloop.index }}" class="mega-menu__content gradient motion-reduce global-settings-popup" tabindex="-1">
-                <ul class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}" role="list">
+                    <div class="page-width mega-menu__inner">
+                <ul class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}" role="list">
                     {%- for childlink in link.links -%}
                     <li>
                         <a href="{{ childlink.url }}" class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
@@ -82,7 +83,46 @@
                     </li>
                     {%- endfor -%}
                 </ul>
-                </div>
+                {%- unless section.blocks.size == 0 -%}
+                <div class ="mega-menu__blocks">
+                {%- for block in section.blocks -%}
+                    {%- assign name = block.settings.name | replace: ' ', '-' | downcase -%}
+                    {%- assign title = link.handle | downcase -%}                    
+                    {%- if name == title -%}
+                <div class ="mega-menu__block" {{ block.shopify_attributes }}>
+                    {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="mega-menu__link">
+                {%- endif -%}
+                <div class="{% if block.settings.image != blank %}media{% else %}media media--square placeholder{% endif %}"{% if block.settings.image != blank %} style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"{% endif %}>
+                    {% if block.settings.image != blank %}
+                <img
+                    srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+                            {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                            {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+                        src="{{ block.settings.image | image_url: width: 500 }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ block.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        >
+                    {%- else -%}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                    </div>      
+                    {%- if block.settings.link != blank -%}
+                    </a>
+                    {%- endif -%}          
+            {%- endif -%}
+            </div>
+                {%- endfor -%}
+            </div>
+        {%- endunless -%}
+            </div>
             </details>
             </header-menu>
             {%- else -%}

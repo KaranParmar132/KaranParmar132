@@ -26,7 +26,7 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <product-recommendations class="product-recommendations page-width section-{{ section.id }}-padding isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
+  <product-recommendations class="product-recommendations page-width section-{{ section.id }}-padding isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&limit={{ section.settings.products_to_show }}">
     {% if recommendations.performed and recommendations.products_count > 0 %}
       <h2 class="product-recommendations__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
       <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" role="list">
@@ -86,7 +86,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.product-recommendations.name",
+  "name": "Recently Visited",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -211,11 +211,11 @@
       "info": "t:sections.product-recommendations.settings.show_rating.info"
     },
     {
-      "type": "checkbox",
-      "id": "enable_quick_add",
-      "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
-    },
+        "type": "checkbox",
+        "id": "enable_quick_add",
+        "default": false,
+        "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
+      },
     {
       "type": "header",
       "content": "t:sections.product-recommendations.settings.header_mobile.content"

@@ -79,11 +79,11 @@
       {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
         <div class="blog__view-all center">
           <a href="{{ section.settings.blog.url }}" class="blog__button button">
-            {%-unless section.settings.button_label == blank-%}
+           <span> {%-unless section.settings.button_label == blank-%}
             {{ section.settings.button_label}}
             {%- else -%}
             {{ 'sections.featured_blog.view_all' | t }}
-            {%- endunless-%}
+            {%- endunless-%}</span>
           </a>
         </div>
       {%- endif -%}

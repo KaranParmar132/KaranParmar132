@@ -5,11 +5,6 @@
 <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-product-recommendations.css' | asset_url | stylesheet_tag }}</noscript>
-{%- if section.settings.enable_quick_add -%}
-  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -37,9 +32,7 @@
               media_aspect_ratio: section.settings.image_ratio,
               show_secondary_image: section.settings.show_secondary_image,
               show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              show_quick_add: section.settings.enable_quick_add,
-              section_id: section.id
+              show_rating: section.settings.show_rating
             %}
           </li>
         {% endfor %}
@@ -86,7 +79,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.product-recommendations.name",
+  "name": "Recently Visited",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -211,11 +204,11 @@
       "info": "t:sections.product-recommendations.settings.show_rating.info"
     },
     {
-      "type": "checkbox",
-      "id": "enable_quick_add",
-      "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
-    },
+        "type": "checkbox",
+        "id": "enable_quick_add",
+        "default": false,
+        "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
+      },
     {
       "type": "header",
       "content": "t:sections.product-recommendations.settings.header_mobile.content"

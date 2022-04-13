@@ -122,3 +122,23 @@
   margin-bottom: .3rem !important;
   margin-top: 0.75rem;
 }
+
+.mega-menu__inner{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.mega-menu__inner .mega-menu__list{
+  flex: 1 1 calc(100% - (100% / 4));
+  padding-left: 0;
+}
+.mega-menu__inner .mega-menu__blocks{
+  width: calc(100% / 4);
+  flex: 1 1 calc(100% / 4);
+}
+.mega-menu__inner .mega-menu__block:not(:first-child){
+  margin-top: 1rem;
+}
+.mega-menu__inner .mega-menu__link{
+  width: 100%;
+  display: block;
+}

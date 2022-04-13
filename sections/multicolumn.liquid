@@ -32,7 +32,7 @@
           {{ section.settings.title | escape }}
         </h2>
         {%- if section.settings.button_label != blank and show_mobile_slider -%}
-          <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">{{ section.settings.button_label | escape }}</a>
+          <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide"><span>{{ section.settings.button_label | escape }}</span></a>
         {%- endif -%}
       </div>
     {%- endunless -%}
@@ -117,7 +117,7 @@
     <div class="center{% if show_mobile_slider %} small-hide medium-hide{% endif %}">
       {%- if section.settings.button_label != blank -%}
         <a class="button button--primary"{% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
-          {{ section.settings.button_label | escape }}
+          <span>{{ section.settings.button_label | escape }}</span>
         </a>
       {%- endif -%}
     </div>

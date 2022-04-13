@@ -92,7 +92,7 @@
             {%- else-%}
               <div class="slideshow__control-wrapper">
                 {%- for product in section.settings.collection.products limit: 2 -%}
-                  <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
+                  <button class="slider-counter__link_1 slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
                     <span class="dot"></span>
                   </button>
                 {%- endfor -%}
@@ -105,18 +105,22 @@
     </slider-component>
 
     {%- if section.settings.show_view_all and more_in_collection -%}
-      <div class="center collection__view-all">
+      <div class="center collection__view-all medium-up-hide">
         <a href="{{ section.settings.collection.url }}"
           class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
           aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
         >
-          {{ 'sections.featured_collection.view_all' | t }}
+         <span> {{ 'sections.featured_collection.view_all' | t }}</span>
         </a>
       </div>
     {%- endif -%}
   </div>
 </div>
-
+<style>
+  .slider-counter__link {
+    padding: 1rem;
+}
+</style>
 {% schema %}
 {
   "name": "t:sections.featured-collection.name",
