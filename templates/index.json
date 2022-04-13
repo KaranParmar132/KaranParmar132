@@ -25,6 +25,7 @@
         },
         "16496676856b3c4b6c-1": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/White_line_won_t_show_when_uploaded.gif",
             "image_mobile": "shopify:\/\/shop_images\/Webp.net-gifmaker_-_2022-03-28T090810.685.gif",
