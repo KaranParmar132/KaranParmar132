@@ -7,9 +7,16 @@
   <div>
     <div class="cart__footer">
       {%- if section.settings.show_cart_note -%}
-        <cart-note class="cart__note field">
+        <cart-note class="cart__note">
           <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <div class="field">          
           <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
+          </div>
+          {%- unless section.settings.note_content == blank -%}
+          <div class="rte">
+            {{ section.settings.note_content }}
+          </div>
+        {%- endunless -%}
         </cart-note>
       {%- endif -%}
 
@@ -52,13 +59,19 @@
                 </small>
               </div>
             {%- else -%}
-              <div class="cart__ctas" {{ block.shopify_attributes }}>
+            <div class="cart__discount customer">
+              <div class="field">                    
+                <input type="text" id="discount" name="discount" placeholder="Discount Code">
+                <label for="discount">Discount Code</label> 
+              </div>
+              <button type="button" class="button"><span>Apply</span></button>
+            </div>
+              <div class="cart__ctas right" {{ block.shopify_attributes }}>
                 <noscript>
                   <button type="submit" class="cart__update-button button button--secondary" form="cart">
                     <span>{{ 'sections.cart.update' | t }}</span>
                   </button>
-                </noscript>
-
+                </noscript>                
                 <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
                   <span>{{ 'sections.cart.checkout' | t }}</span>
                 </button>
@@ -124,6 +137,12 @@
       "id": "show_cart_note",
       "default": false,
       "label": "t:sections.main-cart-footer.settings.show_cart_note.label"
+    },
+    {
+      "type": "richtext",
+      "id": "note_content",
+      "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+      "label": "Note Content"
     }
   ],
   "blocks": [

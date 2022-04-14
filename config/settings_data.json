@@ -15,7 +15,7 @@
     "heading_scale": 100,
     "type_body_font": "avenir_next_n4",
     "body_scale": 100,
-    "page_width": 1300,
+    "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 40,
@@ -94,7 +94,7 @@
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
-    "predictive_search_show_price": false,
+    "predictive_search_show_price": true,
     "favicon": "shopify:\/\/shop_images\/favicon.png",
     "currency_code_enabled": true,
     "sections": {

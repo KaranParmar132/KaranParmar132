@@ -137,6 +137,10 @@
   margin: 1.3rem;
 }
 
+.card__badge--meta img{
+  width: 6rem;
+}
+
 .card__media .media img {
   height: 100%;
   object-fit: cover;
@@ -243,7 +247,9 @@
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
-
+.card__badge--meta img{
+  width: 10rem;
+}
 }
 
 .card--standard.card--media .card__inner .card__information,

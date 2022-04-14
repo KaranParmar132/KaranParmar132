@@ -22,19 +22,21 @@
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
 <cart-items class="page-width{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="title-wrapper-with-link">
-    <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
+  <div class="title-wrapper center">
+    <h1 class="title title--primary h2">{{ 'sections.cart.title' | t }}</h1>
+    {%- comment -%}
     <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+    {%- endcomment -%}
   </div>
 
   <div class="cart__warnings">
-    <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
+    <h1 class="cart__empty-text h3">{{ 'sections.cart.empty' | t }}</h1>
     <a href="{{ routes.all_products_collection_url }}" class="button">
       <span>{{ 'general.continue_shopping' | t }}</span>
     </a>
 
     {%- if shop.customer_accounts_enabled and customer == nil -%}
-      <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
+      <h2 class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</h2>
       <p class="cart__login-paragraph">
         {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
       </p>
@@ -48,10 +50,11 @@
           <table class="cart-items">
             <thead>
               <tr>
-                <th class="caption-with-letter-spacing" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
-                <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
-                <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
+                <th class="caption-with-letter-spacing--medium" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
+                <th class="medium-hide large-up-hide right caption-with-letter-spacing--medium" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
+                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing--medium" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
+                <th class="small-hide right caption-with-letter-spacing--medium" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
+                <th class="right caption-with-letter-spacing--medium" colspan="1" scope="col"></th>
               </tr>
             </thead>
 
@@ -62,7 +65,7 @@
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                       <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                        <div class="cart-item__image-container gradient global-media-settings">
+                        <div class="cart-item__image-container gradient">
                           <img src="{{ item.image | image_url: width: 300 }}"
                             class="cart-item__image"
                             alt="{{ item.image.alt | escape }}"
@@ -215,13 +218,7 @@
                           <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                           {% render 'icon-plus' %}
                         </button>
-                      </quantity-input>
-
-                      <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                        <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-                          {% render 'icon-remove' %}
-                        </a>
-                      </cart-remove-button>
+                      </quantity-input>                      
                     </div>
                     <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                       <small class="cart-item__error-text"></small>
@@ -280,6 +277,15 @@
                         </div>
                       {%- endif -%}
                     </div>
+                  </td>
+                  <td class="cart-item__remove">
+                    <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                      <a href="{{ item.url_to_remove }}" class="link" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-close">
+                          <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                      </a>
+                    </cart-remove-button>
                   </td>
                 </tr>
               {%- endfor -%}

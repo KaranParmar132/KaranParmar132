@@ -274,6 +274,10 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 /*--- Update ---*/
+.menu-drawer summary.menu-drawer__menu-item .link{
+text-decoration: none;
+color: currentColor;
+}
 .menu-drawer__inner-container{
   padding: 0;
 }

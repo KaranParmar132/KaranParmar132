@@ -556,6 +556,7 @@ class SliderComponent extends HTMLElement {
     resizeObserver.observe(this.slider);
 
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link_1'));
+    console.log(this.sliderControlLinksArray)
     this.sliderControlLinksArray.forEach(link => link.addEventListener('click', this.linkToSlide.bind(this)));
   
     this.slider.addEventListener('scroll', this.update.bind(this));
@@ -617,9 +618,9 @@ class SliderComponent extends HTMLElement {
       link.classList.remove('slider-counter__link--active');
       link.removeAttribute('aria-current');
     });
-    //console.log(this.sliderItemsToShow[this.currentPage - 1]);
-    this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
-    this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
+    console.log(Math.floor(this.currentPage / 5));
+    this.sliderControlButtons[Math.floor(this.currentPage / 5)].classList.add('slider-counter__link--active');
+    this.sliderControlButtons[Math.floor(this.currentPage / 5)].setAttribute('aria-current', true);
   }
 
   isSlideVisible(element, offset = 0) {
@@ -636,9 +637,19 @@ class SliderComponent extends HTMLElement {
     });
   }
   linkToSlide(event) {
+    //     console.log(this.slider.scrollLeft);
+    //     console.log(event.target);
     event.preventDefault();
-    //console.log(this.sliderControlLinksArray.indexOf(event.currentTarget));
-    const slideScrollPosition_1 = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 5 - this.currentPage);
+    //     console.log(this.sliderControlLinksArray.indexOf(event.currentTarget));
+    //     console.log(this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 5 - this.currentPage));
+    
+    
+    let slideScrollPosition_1 = 0;
+    if(this.sliderControlLinksArray.indexOf(event.currentTarget) != 0){
+      slideScrollPosition_1 = this.slider.scrollLeft + this.sliderFirstItemNode.clientWidth * (this.sliderControlLinksArray.indexOf(event.currentTarget) + 5 - this.currentPage);
+    }
+    
+    
     this.slider.scrollTo({
       left: slideScrollPosition_1
     });

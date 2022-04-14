@@ -5,7 +5,7 @@
       "settings": {
         "show_vendor": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 12
       }
     },
     "cart-footer": {
@@ -27,25 +27,34 @@
         "buttons"
       ],
       "settings": {
-        "show_cart_note": false
+        "show_cart_note": true,
+        "note_content": "<p>Global supply chain strain has impacted shipping times.<\/p><p><strong>Shipping times may be delayed.<\/strong><\/p>"
       }
     },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
+        "title": "RELATED PRODUCTS",
         "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "collection": "all",
-        "products_to_show": 4,
+        "products_to_show": 8,
         "columns_desktop": 4,
+        "full_width": true,
         "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
         "color_scheme": "background-1",
         "image_ratio": "square",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "enable_quick_add": true,
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
+        "slider_visual": "dots",
         "padding_top": 36,
         "padding_bottom": 36
       }

@@ -28,7 +28,7 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Continue shopping",
+    "continue_shopping": "Shop our products",
     "pagination": {
       "label": "Pagination",
       "page": "Page {{ number }}",
@@ -39,8 +39,8 @@
       "search": "Search"
     },
     "cart": {
-      "view": "View my cart ({{ count }})",
-      "item_added": "Item added to your cart"
+      "view": "View my bag ({{ count }})",
+      "item_added": "Item added to your bag"
     },
     "share": {
       "close": "Close share",
@@ -102,7 +102,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Add to cart",
+      "add_to_cart": "Add to bag",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
@@ -230,20 +230,20 @@
       }
     },
     "cart": {
-      "title": "Your cart",
+      "title": "Shopping bag",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
-      "subtotal": "Subtotal",
+      "subtotal": "Total:",
       "new_subtotal": "New subtotal",
-      "note": "Order special instructions",
+      "note": "Add Order Note",
       "checkout": "Check out",
-      "empty": "Your cart is empty",
-      "cart_error": "There was an error while updating your cart. Please try again.",
-      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
+      "empty": "Your bag is empty",
+      "cart_error": "There was an error while updating your bag. Please try again.",
+      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your bag.",
       "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
       "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
       "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
-      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
+      "taxes_and_shipping_at_checkout": "Shipping & taxes calculated at checkout",
       "headings": {
         "product": "Product",
         "price": "Price",

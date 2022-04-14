@@ -6,8 +6,8 @@
 
 .cart-items th {
   text-align: left;
-  padding-bottom: 1.8rem;
-  opacity: 0.85;
+  padding-bottom: .5rem;
+  /*opacity: 0.85;*/
   font-weight: normal;
 }
 
@@ -79,8 +79,8 @@
 
 .cart-item__name:hover {
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
-  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.2rem;
+  text-decoration-thickness: 0.1rem;
 }
 
 .cart-item__price-wrapper > * {
@@ -216,7 +216,7 @@ cart-remove-button .icon-remove {
   .cart-items thead tr {
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), .2);
     margin-bottom: 4rem;
   }
 
@@ -268,7 +268,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-items th {
-    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
   }
 
   .cart-items thead th:first-child {
@@ -281,7 +281,7 @@ cart-remove-button .icon-remove {
 
   .cart-items td {
     vertical-align: top;
-    padding-top: 4rem;
+    padding-top: 1.5rem;
   }
 
   .cart-item {
@@ -297,7 +297,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-item__media {
-    width: 10rem;
+    width: 14rem;
   }
 
   .cart-item cart-remove-button {

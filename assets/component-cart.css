@@ -57,7 +57,7 @@ cart-items {
 
 .cart__items {
   position: relative;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
@@ -66,7 +66,7 @@ cart-items {
 }
 
 .cart__footer {
-  padding: 4rem 0 0;
+  padding: 2.5rem 0 0;
 }
 
 .cart__footer-wrapper:last-child .cart__footer {
@@ -92,18 +92,19 @@ cart-items {
 .cart__note label {
   display: flex;
   align-items: flex-end;
-  position: absolute;
+  /*position: absolute;
   line-height: 1;
   height: 1.8rem;
   top: -3rem;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground), 0.75);*/
+  margin-bottom: 1rem;
 }
 
 .cart__note .field__input {
   height: 100%;
   position: relative;
   border-radius: var(--inputs-radius);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem;  
 }
 
 .cart__note .text-area {
@@ -115,6 +116,12 @@ cart-items {
 .cart__note .field__input:focus,
 .cart__note .field__input {
   border-bottom-right-radius: 0;
+}
+.cart__note .rte{
+  margin-top: 1rem;
+}
+.cart__ctas button {
+  width: 100%;
 }
 
 @media screen and (min-width: 750px) {
@@ -145,15 +152,18 @@ cart-items {
   .cart__footer > * {
     width: 35rem;
   }
+  .cart__blocks{
+    width: 60rem;
+  }
 
   .cart__footer > * + * {
     margin-left: 4rem;
     margin-top: 0;
   }
-}
-
-.cart__ctas button {
-  width: 100%;
+  
+  .cart__ctas button {
+    width: auto;
+  }
 }
 
 .cart__ctas > *:not(noscript:first-child) + * {
@@ -184,9 +194,10 @@ cart-items {
 }
 
 .tax-note {
-  margin: 2.2rem 0 1.6rem auto;
+  margin: 1rem 0 1.6rem auto;
   text-align: center;
   display: block;
+  color:rgba(var(--color-foreground), 0.7);
 }
 
 .cart__checkout-button {
@@ -219,5 +230,26 @@ cart-items {
   .cart__ctas {
     display: flex;
     gap: 1rem;
+    justify-content: flex-end;
   }
+}
+
+
+.cart__discount {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.cart__discount .field input{
+ height: 3.3rem;
+ padding: .5rem;
+}
+.cart__discount .field input + label{
+  top: .8rem;
+  font-size: 1.3rem;
+}
+.cart__discount .button{
+  height: 3.4rem;
+  min-height: 3.4rem;
+  min-width: 16rem;    
 }
