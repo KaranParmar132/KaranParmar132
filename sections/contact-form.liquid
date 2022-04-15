@@ -71,6 +71,26 @@
         <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
         <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
       </div>
+      <div class="field select">
+        <select id="ContactForm-inquiry" class="select__select" name="contact[{{ 'templates.contact.form.inquiry' | t }}]" placeholder="{{ 'templates.contact.form.inquiry' | t }}">
+        <option value="" disabled="" selected="">Inquiry Type</option>
+        <option value="General Inquiry">General Inquiry</option>
+        <option value="Suggestions">Suggestions</option>
+        <option value="Order Inquiry">Order Inquiry</option>
+        <option value="Payment">Payment</option>
+        <option value="Delivery">Delivery</option>
+        <option value="Order Issues">Order Issues</option>
+        <option value="Promotions">Promotions</option>
+        <option value="Website / Technical">Website / Technical</option>
+        <option value="Other">Other</option>
+      </select>
+        {%- render 'icon-caret' -%}
+        <label class="field__label visually-hidden" for="ContactForm-inquiry">{{ 'templates.contact.form.inquiry' | t }}</label>
+      </div>
+      <div class="field">
+        <input type="text" id="ContactForm-order" class="field__input" name="contact[{{ 'templates.contact.form.order' | t }}]" value="{% if form.order %}{{ form.order }}{% elsif customer %}{{ customer.order }}{% endif %}" placeholder="{{ 'templates.contact.form.order' | t }}">
+        <label class="field__label" for="ContactForm-order">{{ 'templates.contact.form.order' | t }}</label>
+      </div>      
       <div class="field">
         <textarea
           rows="10"
@@ -84,7 +104,7 @@
         <label class="form__label field__label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
       </div>
       <div class="contact__button">
-        <button type="submit" class="button">
+        <button type="submit" class="button button--full-width">
           <span>{{ 'templates.contact.form.send' | t }}</span>
         </button>
       </div>
