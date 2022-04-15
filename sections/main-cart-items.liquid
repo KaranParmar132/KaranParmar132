@@ -48,13 +48,13 @@
       <div class="js-contents">
         {%- if cart != empty -%}
           <table class="cart-items">
-            <thead>
+            <thead class="small-hide">
               <tr>
                 <th class="caption-with-letter-spacing--medium" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
                 <th class="medium-hide large-up-hide right caption-with-letter-spacing--medium" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
                 <th class="cart-items__heading--wide small-hide caption-with-letter-spacing--medium" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
                 <th class="small-hide right caption-with-letter-spacing--medium" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-                <th class="right caption-with-letter-spacing--medium" colspan="1" scope="col"></th>
+                <th class="small-hide right caption-with-letter-spacing--medium" colspan="1" scope="col"></th>
               </tr>
             </thead>
 
@@ -148,7 +148,17 @@
                     </ul>
                   </td>
 
-                  <td class="cart-item__totals right medium-hide large-up-hide">
+                  <td class="cart-item__remove right medium-up-hide">
+                    <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                      <a href="{{ item.url_to_remove }}" class="link" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-close">
+                          <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                      </a>
+                    </cart-remove-button>
+                  </td>
+
+                  <td class="cart-item__totals right small-hide medium-hide large-up-hide">
                     <div class="loading-overlay hidden">
                       <div class="loading-overlay__spinner">
                         <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -278,7 +288,7 @@
                       {%- endif -%}
                     </div>
                   </td>
-                  <td class="cart-item__remove">
+                  <td class="cart-item__remove small-hide">
                     <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
                       <a href="{{ item.url_to_remove }}" class="link" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-close">

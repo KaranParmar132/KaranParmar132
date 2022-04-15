@@ -252,6 +252,9 @@ cart-remove-button .icon-remove {
     align-items: flex-start;
     justify-content: flex-end;
   }
+  .cart-item cart-remove-button{
+    justify-content: flex-end;
+  }
 }
 
 .cart-item__error-text + svg {

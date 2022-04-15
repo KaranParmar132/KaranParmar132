@@ -66,7 +66,7 @@ cart-items {
 }
 
 .cart__footer {
-  padding: 2.5rem 0 0;
+  padding: 2.5rem 0;
 }
 
 .cart__footer-wrapper:last-child .cart__footer {
@@ -153,7 +153,7 @@ cart-items {
     width: 35rem;
   }
   .cart__blocks{
-    width: 60rem;
+    width: 50rem;
   }
 
   .cart__footer > * + * {
@@ -194,18 +194,63 @@ cart-items {
 }
 
 .tax-note {
-  margin: 1rem 0 1.6rem auto;
-  text-align: center;
+  margin: 1rem 0 1rem auto;
+  text-align: right;
   display: block;
   color:rgba(var(--color-foreground), 0.7);
 }
 
 .cart__checkout-button {
-  max-width: 36rem;
+  max-width: 100%;
 }
+
 
 .cart__ctas {
   text-align: center;
+}
+
+
+.cart__discount {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.cart__discount .field input{
+ height: 3.3rem;
+ padding: .5rem 1rem;
+}
+.cart__discount .field input + label{
+  top: .8rem;
+  left: 1rem;
+  font-size: 1.3rem;
+}
+.cart__discount .field input:focus{
+  padding: .5rem 1rem;
+}
+.cart__discount .field input:focus ~ label{
+  top: -2rem;
+  left: 0;
+}
+.cart__discount .button{
+  height: 3.4rem;
+  min-height: 3.4rem;    
+}
+.cart__shipping{
+  position: relative;
+  padding: 0.75rem 1.25rem;  
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  margin:0;
+}
+.cart__shipping{
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.cart__shipping.success{
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
 }
 
 @media screen and (min-width: 750px) {
@@ -219,7 +264,7 @@ cart-items {
   }
 
   .tax-note {
-    margin-bottom: 2.2rem;
+    /*margin-bottom: 2.2rem;*/
     text-align: right;
   }
 
@@ -232,24 +277,11 @@ cart-items {
     gap: 1rem;
     justify-content: flex-end;
   }
+  .cart__checkout-button {
+    max-width: 36rem;
+  }
+  .cart__discount .button{    
+    min-width: 16rem;    
+  }
 }
 
-
-.cart__discount {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.cart__discount .field input{
- height: 3.3rem;
- padding: .5rem;
-}
-.cart__discount .field input + label{
-  top: .8rem;
-  font-size: 1.3rem;
-}
-.cart__discount .button{
-  height: 3.4rem;
-  min-height: 3.4rem;
-  min-width: 16rem;    
-}

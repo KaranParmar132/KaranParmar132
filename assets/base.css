@@ -1391,6 +1391,10 @@ button.shopify-payment-button__button--unbranded {
   overflow: hidden;
   text-transform: uppercase;
 }
+.shopify-challenge__button{
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  margin-top: 1.5rem !important;
+}
 .button span,
 .shopify-challenge__button span,
 .shopify-payment-button__button,

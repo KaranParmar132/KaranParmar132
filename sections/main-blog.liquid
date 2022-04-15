@@ -6,6 +6,11 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    --card-text-alignment: left;
+    --grid-desktop-horizontal-spacing: 3rem;
+    --grid-desktop-vertical-spacing:8rem;
+    --grid-mobile-horizontal-spacing: 1rem;
+    --grid-mobile-vertical-spacing: 6rem;
   }
 
   @media screen and (min-width: 750px) {
@@ -14,11 +19,17 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  @media screen and (min-width: 990px) {
+    .section-{{ section.id }}-padding {
+    --grid-desktop-horizontal-spacing: 6rem;
+    --grid-desktop-vertical-spacing:10rem;
+    }
+  }
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
+{%- paginate blog.articles by 12 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary">{{ blog.title | escape }}</h1>
+    <h1 class="title--primary h2 center">{{ blog.title | escape }}</h1>
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}

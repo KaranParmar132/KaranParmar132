@@ -1,6 +1,6 @@
 .totals {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
 }
 

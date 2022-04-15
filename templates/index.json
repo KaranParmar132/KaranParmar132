@@ -84,7 +84,8 @@
         "swipe_on_mobile": true,
         "slider_visual": "dots",
         "padding_top": 16,
-        "padding_bottom": 16
+        "padding_bottom": 16,
+        "border": "bottom"
       }
     },
     "16496702476e88a048": {
@@ -112,7 +113,8 @@
         "swipe_on_mobile": true,
         "slider_visual": "dots",
         "padding_top": 32,
-        "padding_bottom": 16
+        "padding_bottom": 16,
+        "border": "bottom"
       }
     },
     "16496721807ca462a2": {

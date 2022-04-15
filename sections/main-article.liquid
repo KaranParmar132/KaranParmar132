@@ -1,5 +1,18 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding">
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
@@ -34,15 +47,17 @@
 
         {%- when 'title'-%}
           <header class="page-width page-width--narrow" {{ block.shopify_attributes }}>
-            <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+            <div class="caption">
             {%- if block.settings.blog_show_date -%}
-              <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
+              <span class="uppercase circle-divider caption-with-letter-spacing--large" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
             {%- endif -%}
             {%- if block.settings.blog_show_author -%}
-              <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span class="uppercase caption-with-letter-spacing--large" itemprop="author" itemscope itemtype="http://schema.org/Person">
                 <span itemprop="name">{{ article.author }}</span>
               </span>
             {%- endif -%}
+          </div>
+            <h1 class="article-template__title h2" itemprop="headline">{{ article.title | escape }}</h1>            
           </header>
 
         {%- when 'content'-%}
@@ -52,6 +67,7 @@
 
         {%- when 'share' -%}
           <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
+            {%- comment  -%}
             <share-button class="share-button" {{ block.shopify_attributes }}>
               <button class="share-button__button hidden">
                 {% render 'icon-share' %}
@@ -88,16 +104,44 @@
               </details>
             </share-button>
             <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+          {%- endcomment -%}
+          <div class="social-sharing center"  {{ block.shopify_attributes }}>
+            {%- assign share_title = article.title -%}
+            {%- assign share_permalink = article.url -%}
+            {%- assign share_image= article -%}            
+            <ul class="list-unstyled list-social" role="list">
+              <li class="list-social__item">
+              <a class="link list-social__link" target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}">
+                {% render 'icon-facebook' %}                
+                <span class="visually-hidden">Share on Facebook</span>
+              </a>
+            </li>
+            <li class="list-social__item">
+              <a class="link list-social__link" target="_blank" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}">
+                {% render 'icon-twitter' %}                
+                <span class="visually-hidden">Tweet on Twitter</span>
+              </a>
+            </li>
+            <li class="list-social__item">
+              <a class="link list-social__link" target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}">
+                {% render 'icon-pinterest' %}                
+                <span class="visually-hidden">Pin on Pinterest</span>
+              </a>
+            </li>            
+            </ul>          
+          </div>
           </div>
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top center">
+  {%- comment -%}
+  <div class="article-template__back element-margin-top center hide">
     <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
       <span class="icon-wrap">{% render 'icon-arrow' %}</span>
       {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
     </a>
   </div>
+{%- endcomment -%}
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div id="comments" class="page-width page-width--narrow">
@@ -246,6 +290,7 @@
   </div>
   {%- endif -%}
 </article>
+</div>
 
 <script type="application/ld+json">
   {
@@ -373,6 +418,32 @@
         }
       ]
     }
-  ]
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]  
 }
 {% endschema %}

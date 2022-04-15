@@ -9,7 +9,7 @@
 }
 
 .article-template__hero-container {
-  max-width: 130rem;
+  /*max-width: 130rem;*/
   margin: 0 auto;
 }
 
@@ -31,7 +31,7 @@
   }
 
   .article-template__hero-medium {
-    height: 44rem;
+    height: 45rem;
   }
 
   .article-template__hero-large {
@@ -45,7 +45,7 @@
   }
 
   .article-template__hero-medium {
-    height: 55rem;
+    height: 60rem;
   }
 
   .article-template__hero-large {
@@ -72,7 +72,12 @@
 .article-template__title:not(:only-child) {
   margin-bottom: 1rem;
 }
-
+.article-template__title:not(:first-child) {
+  margin-top: 2rem;
+}
+.article-template header .caption {
+  opacity: 0.8;
+}
 .article-template__link {
   font-size: 1.8rem;
   display: flex;
@@ -87,23 +92,44 @@
   transform: rotate(180deg);
 }
 
-.article-template__content {
+.article-template__content,
+.article-template__content.rte img {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+.article-template__content.rte img {
+  border: 0;
+  box-shadow: none;
+}
 
 .article-template__social-sharing {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .article-template__social-sharing + header,
 .article-template__social-sharing + .article-template__content {
   margin-top: 1.5rem;
 }
+.article-template__social-sharing .list-social {
+  justify-content: center;
+}
+.article-template__social-sharing .list-social__item .icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  opacity: 0.7;
+}
 
 .article-template__comment-wrapper {
   margin-top: 5rem;
   padding: 2.7rem 0;
+}
+
+.article-template__back:last-child {
+  margin-bottom: 3.2rem;
+}
+
+.blog--related {
+  background-color: #f8efef;
 }
 
 @media screen and (min-width: 750px) {
@@ -158,6 +184,26 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 4rem;
   }
+
+  .article-template .article-template__hero-container + header {
+    position: relative;
+    z-index: 1;
+    margin-top: -3rem;
+  }
+  .article-template .article-template__hero-container + header * {
+    position: relative;
+    z-index: 1;
+  }
+  .article-template .article-template__hero-container + header::before {
+    content: "";
+    background: var(--gradient-background);
+    display: block;
+    position: absolute;
+    height: calc(100% + 5rem);
+    width: calc(100% + 10rem);
+    left: -5rem;
+    top: -4rem;
+  }
 }
 
 .article-template__comment-warning {
@@ -168,8 +214,4 @@
   .article-template__comments .pagination-wrapper {
     margin: 5rem 0 8rem;
   }
-}
-
-.article-template__back:last-child {
-  margin-bottom: 3.2rem;
 }

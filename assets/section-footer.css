@@ -45,6 +45,9 @@
     margin-bottom: 0;
   }
 }
+.footer__content-bottom {
+  padding-top: 5rem;
+}
 /*
 .footer__content-bottom {
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);

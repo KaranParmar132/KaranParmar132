@@ -15,7 +15,7 @@
     "heading_scale": 100,
     "type_body_font": "avenir_next_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1300,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 40,
@@ -218,7 +218,7 @@
           "payment_enable": false,
           "copyright": "<p><a href=\"https:\/\/rahua.com\/\">© RAHUA<\/a> Copyright 2022 © Amazon Beauty ® Inc. DBA Rahua ® All Rights Reserved<\/p>",
           "extra_content": "<ul class=\"list-unstyled\">\n<li>\n<a href=\"\/pages\/terms-and-conditions\" class=\"link link--text\">TERMS &amp; CONDITIONS<\/a>\n<\/li>\n<li>\n<a href=\"\/pages\/privacy-policy\" class=\"link link--text\">PRIVACY POLICY<\/a> <\/li>\n<\/ul>",
-          "margin_top": 4,
+          "margin_top": 0,
           "padding_top": 24,
           "padding_bottom": 4
         }

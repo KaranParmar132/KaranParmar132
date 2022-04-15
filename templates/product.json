@@ -167,7 +167,8 @@
         "swipe_on_mobile": true,
         "slider_visual": "dots",
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "border": "top"
       }
     },
     "multicolumn": {
@@ -293,7 +294,8 @@
         "swipe_on_mobile": true,
         "slider_visual": "dots",
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "border": "top"
       }
     }
   },

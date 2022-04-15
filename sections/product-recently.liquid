@@ -19,7 +19,17 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    {%- unless  section.settings.border == 'none' -%}
+    {%- case section.settings.border -%}
+      {%- when 'top' -%}
+      border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+      {%- when 'bottom' -%}
+      border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+      {%- when 'both' -%}
+      border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+      border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+      {%- endcase -%}
+    {%- endunless -%}
   }
 
   @media screen and (min-width: 750px) {
@@ -338,6 +348,35 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },    
+    {
+      "type": "select",
+      "id": "border",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "top",
+          "label": "Border top"
+        },
+        {
+          "value": "bottom",
+          "label": "Border bottom"
+        },
+        {
+          "value": "both",
+          "label": "Border top and bottom"
+        }
+      ],
+      "default": "none",
+      "label": "Section Border"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently Visited"
     }
   ]
 }
