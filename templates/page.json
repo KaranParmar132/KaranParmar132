@@ -62,10 +62,11 @@
           "type": "custom",
           "settings": {
             "image": "shopify:\/\/shop_images\/Fabian_Gift_Guide_500x_7b7e5362-d9ac-49a2-9ad7-d079b48fe48f.webp",
-            "title": "",
+            "mobile_image": "shopify:\/\/shop_images\/Fabian_Gift_Guide_500x_7b7e5362-d9ac-49a2-9ad7-d079b48fe48f.webp",
+            "title": "<p>FOR HIM<\/p>",
             "title_alignment": "text-center",
-            "description": "Tell your story",
-            "link": ""
+            "description": "From scalp health to styling; grooming go-to’s recommended by our founder and hair styling expert Fabian Lliguin",
+            "link": "shopify:\/\/collections\/gifts-for-him"
           }
         }
       },
