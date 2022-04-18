@@ -518,7 +518,7 @@
     "contact-page": {
       "name": "Contact Form",
       "presets": {
-        "name": "Contact form"
+        "name": "Contact Page"
       }
     },
     "custom-liquid": {
