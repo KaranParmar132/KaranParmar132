@@ -90,13 +90,23 @@
             "description": "Connect to the magic of the Amazon Rainforest, these picks energize and uplift to help center the mind.",
             "link": "shopify:\/\/collections\/body-wellness-gifts"
           }
+        },
+        "c7f8f851-25a2-47a6-9219-fd0e1842d51e": {
+          "type": "custom",
+          "settings": {
+            "title": "<p>FOR EVERYONE<\/p>",
+            "title_alignment": "text-center",
+            "description": "Everyday essentials for the whole family, and everyone on your list.",
+            "link": "shopify:\/\/collections\/gifts-for-everyone"
+          }
         }
       },
       "block_order": [
         "75424e73-3333-4e08-8ae3-5d1c4ca297a0",
         "ae90eb62-d08e-472a-a3bd-7195b940b7ca",
         "14eb6ca5-7b0a-4b00-b526-95b132756438",
-        "8814d36a-6523-40fb-ad67-188651403f5f"
+        "8814d36a-6523-40fb-ad67-188651403f5f",
+        "c7f8f851-25a2-47a6-9219-fd0e1842d51e"
       ],
       "settings": {
         "enable": true,
