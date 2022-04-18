@@ -94,6 +94,8 @@
         "c7f8f851-25a2-47a6-9219-fd0e1842d51e": {
           "type": "custom",
           "settings": {
+            "image": "shopify:\/\/shop_images\/4kzoy6_500x_c52e2dc4-a9e2-4b9f-a20c-87efb23417b3.gif",
+            "mobile_image": "shopify:\/\/shop_images\/4kzoy6_500x_c52e2dc4-a9e2-4b9f-a20c-87efb23417b3.gif",
             "title": "<p>FOR EVERYONE<\/p>",
             "title_alignment": "text-center",
             "description": "Everyday essentials for the whole family, and everyone on your list.",
