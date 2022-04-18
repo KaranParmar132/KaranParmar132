@@ -2,7 +2,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -10,6 +9,7 @@
     },
     "1650273949690a5618": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "16502739497091ab23-0": {
           "type": "slide",
@@ -47,6 +47,7 @@
     },
     "16502737675690178e": {
       "type": "carousel",
+      "disabled": true,
       "blocks": {
         "277e2823-f7c9-4744-bf7d-0f787b090c00": {
           "type": "custom",
@@ -122,6 +123,7 @@
     },
     "1650273782c066fd12": {
       "type": "featured-collection2",
+      "disabled": true,
       "settings": {
         "sub_title": "Featured collection",
         "title": "",
