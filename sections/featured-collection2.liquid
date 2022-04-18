@@ -1,12 +1,114 @@
+{%- assign collection = collections[section.settings.collection] -%}
+{%- if collection != empty -%}
+  <section class="my-2">
+    {%- if section.settings.sub_title != blank or section.settings.title != blank-%}
+    <header class="py-4">
+      {%- if section.settings.sub_title != blank -%}
+        <h4 class="text-center">
+          {{ section.settings.sub_title | escape }}
+        </h3>
+      {%- endif -%}
+      <h2 class="text-center text-uppercase">
+        {%- if section.settings.title != blank -%}
+          {{ section.settings.title |escape }}
+        {%- endif -%}
+      </h2>
+    </header>
+    {%- endif -%}
+    <div>
+      <div class="px-4 d-none d-md-block">
+        <vue-carousel
+          {% if section.settings.show_navigation %} navigation-enabled {% endif %}
+          :pagination-enabled="{{ section.settings.show_dots }}"
+          :per-page-custom="[[576, 2],[768, 3],[1024, 4]]"
+          :loop="true"
+          :scrollPerPage="false"
+        >
+          {%- for product in collection.products limit: block.settings.grid_items_count -%}
+            <vue-slide>
+              {%- render 'product-item', product:product -%}
+            </vue-slide>
+          {%- endfor -%}
+        </vue-carousel>
+      </div>
+      <div class="px-4 d-md-none">
+        <vue-carousel
+          {% if section.settings.show_navigation %} navigation-enabled {% endif %}
+          :pagination-enabled="false"
+          :per-page-custom="[[576, 2],[768, 3],[1024, 4]]"
+          :loop="true"
+          :scrollPerPage="false"
+        >
+          {%- for product in collection.products limit: block.settings.grid_items_count -%}
+            <vue-slide>
+              {%- render 'product-item', product:product -%}
+            </vue-slide>
+          {%- endfor -%}
+        </vue-carousel>
+        <div class="row mt-4">
+          <div class="col text-center mb-4">
+            <a href="{{ collection.url }}" class="Button Button--primary">
+              {{ section.settings.button_text | escape }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Featured collections 2",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub-heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_info",
+      "label": "Show product info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show botton navigation dots",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View all"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Collection",
+      "name": "Featured collections 2",
+      "settings": {}
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
