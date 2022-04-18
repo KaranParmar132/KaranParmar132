@@ -2,11 +2,24 @@
   "sections": {
     "main": {
       "type": "contact-page",
+      "blocks": {
+        "b6c20555-0e2a-418e-b1a5-942c0e4df19d": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Inquiry Type",
+            "values": "value 1, value 2, value 3"
+          }
+        }
+      },
+      "block_order": [
+        "b6c20555-0e2a-418e-b1a5-942c0e4df19d"
+      ],
       "settings": {
       }
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
