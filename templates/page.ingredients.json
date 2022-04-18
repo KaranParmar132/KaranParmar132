@@ -1,15 +1,23 @@
 {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "order": [
-      "main"
-    ]
+    "165027074635c9ac4b": {
+      "type": "sidebar-menu",
+      "settings": {
+        "primary_menu": "main-menu",
+        "secondary_menu": "",
+        "show_social_media": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "165027074635c9ac4b"
+  ]
 }
-  
