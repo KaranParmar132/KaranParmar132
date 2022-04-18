@@ -9,10 +9,19 @@
             "title": "Inquiry Type",
             "values": "value 1, value 2, value 3"
           }
+        },
+        "95654758-34a6-4d07-b175-e4ab9d0c4444": {
+          "type": "text",
+          "settings": {
+            "title": "Order Number",
+            "use_long_text": false,
+            "is_required": false
+          }
         }
       },
       "block_order": [
-        "b6c20555-0e2a-418e-b1a5-942c0e4df19d"
+        "b6c20555-0e2a-418e-b1a5-942c0e4df19d",
+        "95654758-34a6-4d07-b175-e4ab9d0c4444"
       ],
       "settings": {
       }
