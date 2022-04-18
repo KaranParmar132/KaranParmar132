@@ -79,12 +79,24 @@
             "description": "Give the gift of Rainforest Grown Beauty. Perfectly packaged and ready for sharing.",
             "link": "shopify:\/\/collections\/gifts-for-frequent-flyers"
           }
+        },
+        "8814d36a-6523-40fb-ad67-188651403f5f": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Body_Wellness_Gifting_500x_970c28fa-6d75-46e2-abda-b76826852ca3.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Body_Wellness_Gifting_500x_970c28fa-6d75-46e2-abda-b76826852ca3.webp",
+            "title": "",
+            "title_alignment": "text-center",
+            "description": "Tell your story",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "75424e73-3333-4e08-8ae3-5d1c4ca297a0",
         "ae90eb62-d08e-472a-a3bd-7195b940b7ca",
-        "14eb6ca5-7b0a-4b00-b526-95b132756438"
+        "14eb6ca5-7b0a-4b00-b526-95b132756438",
+        "8814d36a-6523-40fb-ad67-188651403f5f"
       ],
       "settings": {
         "enable": true,
