@@ -2,19 +2,37 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
     },
-    "1650273749a4ce743b": {
+    "1650273949690a5618": {
       "type": "slideshow",
       "blocks": {
-        "1650273749a862bb1f-0": {
+        "16502739497091ab23-0": {
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rahua_Rituals_Desktop_Banner_3.17_1800x_35269725-3394-4fbd-9ba5-166a4f987ec1.webp",
-            "image_mobile": "shopify:\/\/shop_images\/Rahua_Rituals_Desktop_Banner_3.17_1800x_35269725-3394-4fbd-9ba5-166a4f987ec1.webp",
+            "slide_link": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "16502739497091ab23-1": {
+          "type": "slide",
+          "settings": {
             "slide_link": "",
             "heading": "Image slide",
             "heading_size": "h1",
@@ -32,7 +50,8 @@
         }
       },
       "block_order": [
-        "1650273749a862bb1f-0"
+        "16502739497091ab23-0",
+        "16502739497091ab23-1"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -71,7 +90,7 @@
   },
   "order": [
     "main",
-    "1650273749a4ce743b",
+    "1650273949690a5618",
     "16502737675690178e",
     "1650273782c066fd12"
   ]
