@@ -13,24 +13,7 @@
         "1650273749a862bb1f-0": {
           "type": "slide",
           "settings": {
-            "slide_link": "",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "1650273749a862bb1f-1": {
-          "type": "slide",
-          "settings": {
+            "image": "shopify:\/\/shop_images\/Rahua_Rituals_Desktop_Banner_3.17_1800x_35269725-3394-4fbd-9ba5-166a4f987ec1.webp",
             "slide_link": "",
             "heading": "Image slide",
             "heading_size": "h1",
@@ -48,8 +31,7 @@
         }
       },
       "block_order": [
-        "1650273749a862bb1f-0",
-        "1650273749a862bb1f-1"
+        "1650273749a862bb1f-0"
       ],
       "settings": {
         "layout": "full_bleed",
