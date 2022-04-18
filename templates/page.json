@@ -6,9 +6,77 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "1650273749a4ce743b": {
+      "type": "slideshow",
+      "blocks": {
+        "1650273749a862bb1f-0": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "1650273749a862bb1f-1": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1650273749a862bb1f-0",
+        "1650273749a862bb1f-1"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_effact": "slide",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "16502737675690178e": {
+      "type": "carousel",
+      "settings": {
+        "enable": true,
+        "sub_title": "",
+        "title": "",
+        "title_link": "",
+        "show_navigation": false,
+        "show_dots": false
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1650273749a4ce743b",
+    "16502737675690178e"
   ]
 }
