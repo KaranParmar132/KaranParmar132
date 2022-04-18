@@ -57,10 +57,21 @@
             "description": "Bring the spa to her; nurturing plant-powered hair and body care handpicked by our founder Anna Ayers",
             "link": "shopify:\/\/collections\/gifts-for-her"
           }
+        },
+        "ae90eb62-d08e-472a-a3bd-7195b940b7ca": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Fabian_Gift_Guide_500x_7b7e5362-d9ac-49a2-9ad7-d079b48fe48f.webp",
+            "title": "",
+            "title_alignment": "text-center",
+            "description": "Tell your story",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "75424e73-3333-4e08-8ae3-5d1c4ca297a0"
+        "75424e73-3333-4e08-8ae3-5d1c4ca297a0",
+        "ae90eb62-d08e-472a-a3bd-7195b940b7ca"
       ],
       "settings": {
         "enable": true,
