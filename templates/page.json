@@ -66,6 +66,22 @@
     },
     "16502737675690178e": {
       "type": "carousel",
+      "blocks": {
+        "277e2823-f7c9-4744-bf7d-0f787b090c00": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4kzoow_500x_5300ac55-ad97-42c4-9482-07cc2f7dcf8e.gif",
+            "mobile_image": "shopify:\/\/shop_images\/4kzoow_500x_5300ac55-ad97-42c4-9482-07cc2f7dcf8e.gif",
+            "title": "<p>FOR HER<\/p>",
+            "title_alignment": "text-center",
+            "description": "Bring the spa to her; nurturing plant-powered hair and body care handpicked by our founder Anna Ayers",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "277e2823-f7c9-4744-bf7d-0f787b090c00"
+      ],
       "settings": {
         "enable": true,
         "sub_title": "RAHUA THOUGHTFUL GIFTING",
