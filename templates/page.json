@@ -88,11 +88,23 @@
             "description": "From scalp health to styling; grooming go-to’s recommended by our founder and hair styling expert Fabian Lliguin",
             "link": "shopify:\/\/collections\/gifts-for-him"
           }
+        },
+        "bc8418e2-6462-4c30-b9e0-1e4e36442882": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4l1u6t_500x_1b1713ed-3a86-446c-96d6-93b256ce5431.gif",
+            "mobile_image": "shopify:\/\/shop_images\/4l1u6t_500x_1b1713ed-3a86-446c-96d6-93b256ce5431.gif",
+            "title": "<p>SHARE THE MAGIC<\/p>",
+            "title_alignment": "text-center",
+            "description": "Give the gift of Rainforest Grown Beauty. Perfectly packaged and ready for sharing.",
+            "link": "shopify:\/\/collections\/gifts-for-frequent-flyers"
+          }
         }
       },
       "block_order": [
         "277e2823-f7c9-4744-bf7d-0f787b090c00",
-        "02175ae1-6fa0-4e60-945f-2a1d0e07b908"
+        "02175ae1-6fa0-4e60-945f-2a1d0e07b908",
+        "bc8418e2-6462-4c30-b9e0-1e4e36442882"
       ],
       "settings": {
         "enable": true,
