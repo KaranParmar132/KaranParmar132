@@ -3,6 +3,7 @@
     "main": {
       "type": "ingredients-template",
       "settings": {
+        "enable_section": true
       }
     },
     "165027074635c9ac4b": {
@@ -13,10 +14,28 @@
         "secondary_menu": "",
         "show_social_media": true
       }
+    },
+    "1650271980cd32b2ef": {
+      "type": "ingredients-template",
+      "blocks": {
+        "66322806-40af-4264-81e8-3eef9833cb59": {
+          "type": "ingredient",
+          "settings": {
+            "collection": "rahua-ungurahua"
+          }
+        }
+      },
+      "block_order": [
+        "66322806-40af-4264-81e8-3eef9833cb59"
+      ],
+      "settings": {
+        "enable_section": true
+      }
     }
   },
   "order": [
     "main",
-    "165027074635c9ac4b"
+    "165027074635c9ac4b",
+    "1650271980cd32b2ef"
   ]
 }
