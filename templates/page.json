@@ -85,10 +85,10 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Body_Wellness_Gifting_500x_970c28fa-6d75-46e2-abda-b76826852ca3.webp",
             "mobile_image": "shopify:\/\/shop_images\/Body_Wellness_Gifting_500x_970c28fa-6d75-46e2-abda-b76826852ca3.webp",
-            "title": "",
+            "title": "<p>FOR BODY & WELLNESS<\/p>",
             "title_alignment": "text-center",
-            "description": "Tell your story",
-            "link": ""
+            "description": "Connect to the magic of the Amazon Rainforest, these picks energize and uplift to help center the mind.",
+            "link": "shopify:\/\/collections\/body-wellness-gifts"
           }
         }
       },
