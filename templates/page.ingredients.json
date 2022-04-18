@@ -9,8 +9,9 @@
     },
     "165027074635c9ac4b": {
       "type": "sidebar-menu",
+      "disabled": true,
       "settings": {
-        "primary_menu": "main-menu",
+        "primary_menu": "",
         "secondary_menu": "",
         "show_social_media": true
       }
