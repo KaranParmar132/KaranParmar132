@@ -1,34 +1,14 @@
 {
   "sections": {
     "main": {
-      "type": "contact-page",
-      "blocks": {
-        "b6c20555-0e2a-418e-b1a5-942c0e4df19d": {
-          "type": "dropdown",
-          "settings": {
-            "title": "Inquiry Type",
-            "values": "General Inquiry, Suggestions, Order Inquiry, Payment, Delivery, Order Issues, Promotions, Website \/ Technical, Other"
-          }
-        },
-        "95654758-34a6-4d07-b175-e4ab9d0c4444": {
-          "type": "text",
-          "settings": {
-            "title": "Order Number",
-            "use_long_text": false,
-            "is_required": false
-          }
-        }
-      },
-      "block_order": [
-        "b6c20555-0e2a-418e-b1a5-942c0e4df19d",
-        "95654758-34a6-4d07-b175-e4ab9d0c4444"
-      ],
+      "type": "main-page",
       "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "form": {
       "type": "contact-form",
-      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
