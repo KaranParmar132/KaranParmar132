@@ -51,6 +51,7 @@
           "type": "custom",
           "settings": {
             "image": "shopify:\/\/shop_images\/4kzoow_500x_5300ac55-ad97-42c4-9482-07cc2f7dcf8e.gif",
+            "mobile_image": "shopify:\/\/shop_images\/4kzoow_500x_5300ac55-ad97-42c4-9482-07cc2f7dcf8e.gif",
             "title": "",
             "title_alignment": "text-center",
             "description": "Tell your story",
