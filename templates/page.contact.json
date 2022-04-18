@@ -7,7 +7,7 @@
           "type": "dropdown",
           "settings": {
             "title": "Inquiry Type",
-            "values": "value 1, value 2, value 3"
+            "values": "General Inquiry, Suggestions, Order Inquiry, Payment, Delivery, Order Issues, Promotions, Website \/ Technical, Other"
           }
         },
         "95654758-34a6-4d07-b175-e4ab9d0c4444": {
