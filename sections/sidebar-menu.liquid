@@ -1,12 +1,149 @@
+{%- assign main_menu_handle = section.settings.primary_menu | default: 'main-menu' -%}
+{%- assign main_menu = linklists[main_menu_handle] -%}
+
+<b-sidebar id="sidebar-menu" bg-variant="white" backdrop style="width:100%">
+  <div class="px-2 mx-2 pt-2">
+    <div class="nav flex-column text-uppercase">
+      {%- for link in main_menu.links -%}
+        <div class="nav-item border-secondary border-bottom py-4">
+          {%- if link.links != blank -%}
+            <span class="d-flex text-uppercase">
+              <a href="{{ link.url }}">
+                <span>{{- link.title | escape -}}</span>
+              </a>
+              <span class="ml-auto" v-b-toggle.collapse-{{- link.title | handleize -}}>
+                <plus-minus></plus-minus>
+              </span>
+            </span>
+            <b-collapse id="collapse-{{- link.title | handleize -}}" class="bg-light">
+              <div class="nav flex-column text-muted">
+                {%- for sublink in link.links -%}
+                  <div class="nav-item ml-2 border-secondary py-4">
+                    {%- if sublink.links != blank -%}
+                      <span class="d-flex">
+                        <a href="{{ sublink.url }}">
+                          <span class="text-uppercase text-muted">{{- sublink.title | escape -}}</span>
+                        </a>
+                        <span class="ml-auto" v-b-toggle.sub-collapse-{{- sublink.title | handleize -}}>
+                          <plus-minus></plus-minus>
+                        </span>
+                      </span>
+                      <b-collapse id="sub-collapse-{{- sublink.title | handleize -}}" class="bg-light">
+                        <div class="nav flex-column">
+                          {%- for sub_sublink in sublink.links -%}
+                            <div class="nav-item ml-2 border-secondary border-left px-3 py-4">
+                              <a href="{{ sub_sublink.url }}">
+                                <span class="text-capitalize text-muted">
+                                  {{ sub_sublink.title | escape }}
+                                </span>
+                              </a>
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                      </b-collapse>
+                    {%- else -%}
+                      <a href="{{ sublink.url }}">
+                        <span class="text-uppercase text-muted">
+                          {{ sublink.title | escape }}
+                        </span>
+                      </a>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            </b-collapse>
+          {%- else -%}
+            <a href="{{ link.url }}"
+              {%- if link.title contains ' GUIDE' -%}
+                style="color:#B31C6F!important"
+              {%- endif -%}
+            >
+              <span>{{ link.title | escape }}</span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+      <div class="nav-item border-secondary border-bottom py-4">
+        <a href="/pages/rewards">
+          <span>{{- 'header.navigation.rewards' | t -}}</span>
+        </a>
+      </div>
+      {%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
+      {%- for link in secondary_menu.links -%}
+        <div class="nav-item border-secondary border-bottom py-4">
+          <a href="{{ link.url }}">
+            <span>{{ link.title | escape }}</span>
+          </a>
+        </div>
+      {%- endfor -%}
+      {% capture the_snippet_auth %}
+        {% render 'socialshopwave-widget-auth' %}
+      {% endcapture %}
+      {% if the_snippet_auth contains 'Liquid error' and shop.customer_accounts_enabled  %}
+        <div class="nav-item border-secondary border-bottom py-4">
+          <a href="{% if customer %}/account{% else %}/account/login{% endif %}">
+            <p class="text-capitalize text-muted">{{ 'header.navigation.account' | t }}</p>
+          </a>
+        </div>
+      {% elsif shop.customer_accounts_enabled %}
+        <div id="ssw-topauth" class="ssw-topauth">
+          {% if customer %}
+            <div class="ssw-tprofile ssw-dropdown">
+              <a class="ssw-dropdown-toggle" data-toggle="ssw-dropdown" href="javascript:void(0);">
+                {{ 'header.navigation.account' | t }}
+              </a>
+              <ul class="ssw-dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li id="customer_myorders_li"><a tabindex="-1" href="/account">{{ 'socialshopwave.my_orders' | t }}</a></li>
+                {% render 'ssw-widget-dropdown' %}
+                <li><a id="customer_logout_link" tabindex="-1" href="/account/logout">{{ 'socialshopwave.logout' | t }}</a></li>
+              </ul>
+            </div>
+          {% else %}
+            <div class="nav-item border-secondary border-bottom py-4">
+              <a id="customer_login_link"
+                href="javascript:void(0);"
+                data-toggle="ssw-modal"
+                data-target="#login_modal"
+                onclick="trackShopStats('login_popup_view', 'all')"
+              >
+                {{ 'header.navigation.account' | t }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="nav-item border-white py-4">
+        {%- include 'bold-currency-picker-mount', openDirection: 'up' -%}
+      </div>
+    </div>
+    {%- if section.settings.show_social_media -%}
+      {% render 'social-media', class:'text-muted' spacing: 'justify-content-around' %}
+    {%- endif -%}
+  </div>
+</b-sidebar>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Sidebar menu",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "primary_menu",
+      "label": "Primary menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "secondary_menu",
+      "label": "Secondary menu",
+      "info": "This menu won't show dropdown items."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_media",
+      "label": "Show social media",
+      "default": true
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
