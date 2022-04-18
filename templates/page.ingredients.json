@@ -23,10 +23,17 @@
           "settings": {
             "collection": "rahua-ungurahua"
           }
+        },
+        "63cb6efb-e3c3-45c9-b664-8e23b3c3104a": {
+          "type": "ingredient",
+          "settings": {
+            "collection": "palo-santo"
+          }
         }
       },
       "block_order": [
-        "66322806-40af-4264-81e8-3eef9833cb59"
+        "66322806-40af-4264-81e8-3eef9833cb59",
+        "63cb6efb-e3c3-45c9-b664-8e23b3c3104a"
       ],
       "settings": {
         "enable_section": true
