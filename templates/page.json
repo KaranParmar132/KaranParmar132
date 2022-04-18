@@ -52,10 +52,10 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/4kzoow_500x_5300ac55-ad97-42c4-9482-07cc2f7dcf8e.gif",
             "mobile_image": "shopify:\/\/shop_images\/4kzoow_500x_5300ac55-ad97-42c4-9482-07cc2f7dcf8e.gif",
-            "title": "",
+            "title": "<p>FOR HER<\/p>",
             "title_alignment": "text-center",
-            "description": "Tell your story",
-            "link": ""
+            "description": "Bring the spa to her; nurturing plant-powered hair and body care handpicked by our founder Anna Ayers",
+            "link": "shopify:\/\/collections\/gifts-for-her"
           }
         }
       },
