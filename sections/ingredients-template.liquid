@@ -1,12 +1,123 @@
+{%- if section.settings.enable_section -%}
+  <div class="container-fluid ingredients-page-content">
+    <div class="row">
+      <div class="col-md-8 offset-md-2" style="min-height:500px">
+        <b-carousel id="carouselIngredients"
+          controls background="#ffffff"
+          :interval="0" v-model="slide"
+          @sliding-start="onSlideStart"
+          @sliding-end="onSlideEnd"
+          fade
+        >
+          {%- for block in section.blocks -%}
+            {%- assign collection = collections[block.settings.collection] -%}
+            <b-carousel-slide>
+              <template v-slot:img>
+                <h1 id="ingredient-title"class="text-center my-5">
+                  {{ collection.title | escape }}
+                </h1>
+                <lazy-image lazy-class="img-fluid mx-auto d-block"
+                  lazy-src="{{ collection.image | img_url: '1x1' }}"
+                  :lazy-widths="[400, 600, 800, 1000]"
+                  lazy-alt="{{ collection.title | escape }}"
+                  lazy-style="min-width:300px"
+                ></lazy-image>
+                <hr class="delimiter mt-5 border-dark">
+                <b-tabs lazy nav-class="offset-md-2 col-md-8 mb-4 border-0">
+                  <b-tab active title="{{- 'page.ingredients.titles.products' | t -}}"
+                    title-item-class="col-6 text-center rahua-tabs-header"
+                    title-link-class="border-0 pb-4 rahua-tabs-header font-weight-bold"
+                  >
+                    <div class="container">
+                      <div class="row">
+                        {%- for product in collection.products -%}
+                          <div class="col-xl-3 col-lg-4 col-6 md-2 mb-3">
+                            {%- render 'product-item',
+                              show_product_info: true,
+                              show_labels: true,
+                              card_img: true
+                              product:product
+                            -%}
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </b-tab>
+                  <b-tab title="{{- 'page.ingredients.titles.benefits' | t -}}"
+                    title-item-class="col-6 text-center"
+                    title-link-class="border-0 pb-4 rahua-tabs-header font-weight-bold"
+                  >
+                    <p class="text-center">
+                      {{ collection.description }}
+                    </p>
+                  </b-tab>
+                </b-tabs>
+              </template>
+            </b-carousel-slide>
+          {%- endfor -%}
+        </b-carousel>
+      </div>
+    </div>
+    <div class="row mb-5 mt-2">
+      <div class="col-10 offset-1 text-center"
+        style="height: 15px; border-bottom: 1px solid rgba(0, 0, 0, 0.5); margin-top: 40px;"
+      >
+        <h2>
+          <span style="background-color: #ffffff; padding: 0 15px;">
+            {{- 'page.ingredients.titles.star_ingredients' | t -}}
+          </span>
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      {% assign count = 0 %}
+      {%- for block in section.blocks -%}
+        {%- assign collection = collections[block.settings.collection] -%}
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+          <div class="card border-white" ref="{{ collection.handle | escape }}" @click="changeImage({{ count }})">
+            <div class="card-body p-0" style="min-height:100px">
+              <lazy-image lazy-class="img-fluid"
+                lazy-src="{{ collection.image | img_url: '1x1' }}"
+                :lazy-widths="[200, 400, 600]"
+                lazy-alt="{{ collection.title | escape }}"
+              ></lazy-image>
+            </div>
+            <div class="card-footer bg-white border-white px-0">
+              <h4 class="text-center">
+                {{ collection.title | escape }}
+              </h4>
+            </div>
+          </div>
+        </div>
+        {% assign count = count | plus: 1 %}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Ingredients List",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable section",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select a collection Ingredient"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
