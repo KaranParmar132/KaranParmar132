@@ -1,0 +1,141 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+{%- assign image_url = product.featured_image | img_url: '400x' -%}
+
+{%- if settings.product_show_secondary_image and product.images[1] != blank -%}
+  {%- assign alt_image = product.images[1] | img_url: '400x' -%}
+{%- else -%}
+  {%- assign alt_image = image_url -%}
+{%- endif -%}
+
+<product-item inline-template propimageurl="{{image_url}}">
+  <div>
+    <div class="card border-white text-center ProductItem my-3 d-none d-md-block">
+      <div class="card-body text-center d-inline-block p-0">
+        <a href="{{ product.url | within: collection }}">
+          <div style="min-height:220px; position:relative" class="badge-wrapper position-relative">
+            <img class="{% if card_img %}card-img-top{% else %}img-fluid{% endif %}"
+              v-lazy="imgObj"
+              alt="{{ product.featured_image.alt | escape }}"
+              @mouseover="imgObj.src= '{{ alt_image }}'"
+              @mouseout="imgObj.src = propimageurl"
+            >
+          {%- if product.metafields.img.badge != blank -%}
+            <img class="position-absolute meta-badge"
+              v-lazy="{
+                src: '{{ product.metafields.img.badge | img_url: '120x' }}',
+                loading: '{{ product.metafields.img.badge | img_url: '1x1' }}'
+              }"
+            >
+          {%- endif -%}
+          </div>
+          <h5 class="text-uppercase mt-2">
+            {{ product.title }}
+          </h5>
+        </a>
+        {% comment %}Start automatically added Judge.me widget{% endcomment %}
+        {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
+        {% comment %}End automatically added Judge.me widget{% endcomment %}
+        {%- assign show_price_on_hover = settings.product_show_price_on_hover -%}
+        {%- if product.template_suffix != 'coming-soon' -%}
+          <div class="ProductItem__PriceList {% if show_price_on_hover %}ProductItem__PriceList--showOnHover{% endif %} text-uppercase text-muted">
+            {%- if product.compare_at_price > product.price -%}
+              <span class="ProductItem__Price Price Price--highlight Text--subdued">
+                {{ product.price | money_without_trailing_zeros }}
+              </span>
+              <span class="ProductItem__Price Price Price--compareAt Text--subdued">
+                {{ product.compare_at_price | money_without_trailing_zeros }}
+              </span>
+            {%- elsif product.price_varies -%}
+              {%- capture formatted_min_price -%}
+                <span data-money-convertible>
+                  {{ product.price_min | money_without_trailing_zeros }}
+                </span>
+              {%- endcapture -%}
+              {%- capture formatted_max_price -%}
+                <span data-money-convertible>
+                  {{ product.price_max | money_without_trailing_zeros }}
+                </span>
+              {%- endcapture -%}
+              <span class="ProductItem__Price Price Text--subdued" data-money-convertible>
+                {{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}
+              </span>
+            {%- else -%}
+              <span class="ProductItem__Price Price Text--subdued" data-money-convertible>
+                {{ product.price | money_without_trailing_zeros }}
+              </span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="card-footer bg-white border-white">
+        <product-item-form product-id="{{ selected_variant.id }}" product-sku="{{ selected_variant.sku }}"
+          :product-available="{{ selected_variant.available }}">
+        </product-item-form>
+      </div>
+    </div>
+    <div class="card border-white text-center ProductItem d-md-none">
+      <div class="card-body text-center d-inline-block p-0">
+        <a href="{{ product.url | within: collection }}">
+          <div style="min-height:220px" class="badge-wrapper position-relative">
+            <img class="{% if card_img %}card-img-top{% else %}img-fluid{% endif %}"
+              v-lazy="imgObj"
+              alt="{{ product.featured_image.alt | escape }}"
+              @mouseover="imgObj.src= '{{ alt_image }}'"
+              @mouseout="imgObj.src = propimageurl">
+            {%- if product.metafields.img.badge != blank -%}
+              <img class="position-absolute meta-badge"
+                v-lazy="{
+                  src: '{{ product.metafields.img.badge | img_url: '60x' }}',
+                  loading: '{{ product.metafields.img.badge | img_url: '1x1' }}'
+                }"
+              >
+            {%- endif -%}
+          </div>
+          <h6 class="text-uppercase font-weight-bold">
+            {{ product.title }}
+          </h6>
+        </a>
+        {% comment %}Start automatically added Judge.me widget{% endcomment %}
+        {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
+        {% comment %}End automatically added Judge.me widget{% endcomment %}
+        {%- assign show_price_on_hover = settings.product_show_price_on_hover -%}
+        {%- if product.template_suffix != 'coming-soon' -%}
+          <div class="ProductItem__PriceList {% if show_price_on_hover %}ProductItem__PriceList--showOnHover{% endif %} text-uppercase text-muted">
+            {%- if product.compare_at_price > product.price -%}
+              <span class="ProductItem__Price Price Price--highlight Text--subdued">
+                {{ product.price | money_without_trailing_zeros }}
+              </span>
+              <span class="ProductItem__Price Price Price--compareAt Text--subdued">
+                {{ product.compare_at_price | money_without_trailing_zeros }}
+              </span>
+            {%- elsif product.price_varies -%}
+              {%- capture formatted_min_price -%}
+                <span data-money-convertible>
+                  {{ product.price_min | money_without_trailing_zeros }}
+                </span>
+              {%- endcapture -%}
+              {%- capture formatted_max_price -%}
+                <span data-money-convertible>
+                  {{ product.price_max | money_without_trailing_zeros }}
+                </span>
+              {%- endcapture -%}
+              <span class="ProductItem__Price Price Text--subdued" data-money-convertible>
+                {{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}
+              </span>
+            {%- else -%}
+              <span class="ProductItem__Price Price Text--subdued" data-money-convertible>
+                {{ product.price | money_without_trailing_zeros }}
+              </span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="card-footer bg-white border-white">
+        <product-item-form product-id="{{ selected_variant.id }}" product-sku="{{ selected_variant.sku }}"
+          :product-available="{{ selected_variant.available }}">
+        </product-item-form>
+      </div>
+    </div>
+  </div>
+</product-item>
+
