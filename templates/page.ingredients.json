@@ -29,11 +29,18 @@
           "settings": {
             "collection": "palo-santo"
           }
+        },
+        "f6fe0746-fe01-4695-8e6a-2dae55c786aa": {
+          "type": "ingredient",
+          "settings": {
+            "collection": "aloe"
+          }
         }
       },
       "block_order": [
         "66322806-40af-4264-81e8-3eef9833cb59",
-        "63cb6efb-e3c3-45c9-b664-8e23b3c3104a"
+        "63cb6efb-e3c3-45c9-b664-8e23b3c3104a",
+        "f6fe0746-fe01-4695-8e6a-2dae55c786aa"
       ],
       "settings": {
         "enable_section": true
