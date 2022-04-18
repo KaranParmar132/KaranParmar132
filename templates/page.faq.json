@@ -9,6 +9,17 @@
     },
     "16502761750040afcd": {
       "type": "page-faq-template",
+      "blocks": {
+        "f4b63b7c-1330-4b09-bdf4-5492af71c70e": {
+          "type": "separator",
+          "settings": {
+            "title": "Default"
+          }
+        }
+      },
+      "block_order": [
+        "f4b63b7c-1330-4b09-bdf4-5492af71c70e"
+      ],
       "settings": {
       }
     }
