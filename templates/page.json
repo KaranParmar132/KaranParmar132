@@ -77,10 +77,22 @@
             "description": "Bring the spa to her; nurturing plant-powered hair and body care handpicked by our founder Anna Ayers",
             "link": "shopify:\/\/collections\/gifts-for-her"
           }
+        },
+        "02175ae1-6fa0-4e60-945f-2a1d0e07b908": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Fabian_Gift_Guide_500x_7b7e5362-d9ac-49a2-9ad7-d079b48fe48f.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Fabian_Gift_Guide_500x_7b7e5362-d9ac-49a2-9ad7-d079b48fe48f.webp",
+            "title": "<p>FOR HIM<\/p>",
+            "title_alignment": "text-center",
+            "description": "From scalp health to styling; grooming go-to’s recommended by our founder and hair styling expert Fabian Lliguin",
+            "link": "shopify:\/\/collections\/gifts-for-him"
+          }
         }
       },
       "block_order": [
-        "277e2823-f7c9-4744-bf7d-0f787b090c00"
+        "277e2823-f7c9-4744-bf7d-0f787b090c00",
+        "02175ae1-6fa0-4e60-945f-2a1d0e07b908"
       ],
       "settings": {
         "enable": true,
