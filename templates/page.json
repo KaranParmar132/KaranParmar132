@@ -118,11 +118,24 @@
         "show_navigation": true,
         "show_dots": true
       }
+    },
+    "1650258969b0cbacb1": {
+      "type": "featured-collection2",
+      "settings": {
+        "sub_title": "Featured collection",
+        "title": "",
+        "collection": "featured-products",
+        "show_product_info": true,
+        "show_navigation": true,
+        "show_dots": true,
+        "button_text": "View all"
+      }
     }
   },
   "order": [
     "main",
     "16502569627ca40db6",
-    "16502577834ada2681"
+    "16502577834ada2681",
+    "1650258969b0cbacb1"
   ]
 }
