@@ -1,55 +1,293 @@
 {
   "sections": {
     "main": {
-      "type": "ingredients-template",
-      "settings": {
-        "enable_section": true
-      }
-    },
-    "165027074635c9ac4b": {
-      "type": "sidebar-menu",
+      "type": "main-page",
       "disabled": true,
       "settings": {
-        "primary_menu": "",
-        "secondary_menu": "",
-        "show_social_media": true
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "1650271980cd32b2ef": {
+    "ingredients": {
       "type": "ingredients-template",
       "blocks": {
-        "66322806-40af-4264-81e8-3eef9833cb59": {
-          "type": "ingredient",
+        "50d915c2-0030-4b38-ac82-478af6c3c280": {
+          "type": "column",
           "settings": {
-            "collection": "rahua-ungurahua"
+            "collection": "rahua-ungurahua",
+            "title": "",
+            "text": ""
           }
         },
-        "63cb6efb-e3c3-45c9-b664-8e23b3c3104a": {
-          "type": "ingredient",
+        "920e1ef2-c69c-4c32-8a4c-f003836e65ef": {
+          "type": "column",
           "settings": {
-            "collection": "palo-santo"
+            "collection": "palo-santo",
+            "title": "",
+            "text": ""
           }
         },
-        "f6fe0746-fe01-4695-8e6a-2dae55c786aa": {
-          "type": "ingredient",
+        "3bbfea89-e650-457f-8a37-30ad2ffdb4ea": {
+          "type": "column",
           "settings": {
-            "collection": "aloe"
+            "collection": "aloe",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b5ae89b0-9864-4cb1-9634-0ec79bbce58d": {
+          "type": "column",
+          "settings": {
+            "collection": "cassava",
+            "title": "",
+            "text": ""
+          }
+        },
+        "caa67f2a-fb6d-4f29-9540-6c584119e949": {
+          "type": "column",
+          "settings": {
+            "collection": "carnauba",
+            "title": "",
+            "text": ""
+          }
+        },
+        "5a2664f9-cc72-4bc2-8ce2-0c1201878b88": {
+          "type": "column",
+          "settings": {
+            "collection": "chlorophyll",
+            "title": "",
+            "text": ""
+          }
+        },
+        "1ef500e1-bdc4-414a-bd62-88f6dd25c355": {
+          "type": "column",
+          "settings": {
+            "collection": "coconut",
+            "title": "",
+            "text": ""
+          }
+        },
+        "d1895b6e-26d6-4af1-be1a-f81f86580f1b": {
+          "type": "column",
+          "settings": {
+            "collection": "eucalyptus",
+            "title": "",
+            "text": ""
+          }
+        },
+        "417e5258-2141-4a46-a7d0-8d1eaca18ea5": {
+          "type": "column",
+          "settings": {
+            "collection": "gardenia-flower",
+            "title": "",
+            "text": ""
+          }
+        },
+        "f2ee8769-ce2c-494b-9bb5-5a9c88a5deb4": {
+          "type": "column",
+          "settings": {
+            "collection": "green-tea",
+            "title": "",
+            "text": ""
+          }
+        },
+        "14e41342-a2be-4a1b-bed8-d4d72b3b39b6": {
+          "type": "column",
+          "settings": {
+            "collection": "guayaba-guava",
+            "title": "",
+            "text": ""
+          }
+        },
+        "081384ac-596c-4140-b8cd-93c35c5e7c91": {
+          "type": "column",
+          "settings": {
+            "collection": "guayusa",
+            "title": "",
+            "text": ""
+          }
+        },
+        "3257cbc4-0a8b-4846-b9e9-ac79edff28a8": {
+          "type": "column",
+          "settings": {
+            "collection": "hibiscus",
+            "title": "",
+            "text": ""
+          }
+        },
+        "e29ff6bf-4d10-4fd6-86ce-0498f16b77a3": {
+          "type": "column",
+          "settings": {
+            "collection": "lavender",
+            "title": "",
+            "text": ""
+          }
+        },
+        "f4683d78-089a-4848-b1f0-006d17bda8bf": {
+          "type": "column",
+          "settings": {
+            "collection": "lemon-grass",
+            "title": "",
+            "text": ""
+          }
+        },
+        "3d6413ab-010b-4210-a674-63d2dce68b92": {
+          "type": "column",
+          "settings": {
+            "collection": "mango",
+            "title": "",
+            "text": ""
+          }
+        },
+        "13dcebef-1395-4389-8569-d4d0e1532bd6": {
+          "type": "column",
+          "settings": {
+            "collection": "morete-buriti",
+            "title": "",
+            "text": ""
+          }
+        },
+        "2343623b-0677-411b-9c3d-788a0d0d2da3": {
+          "type": "column",
+          "settings": {
+            "collection": "passion-fruit",
+            "title": "",
+            "text": ""
+          }
+        },
+        "8adb8232-a194-491d-b6c7-e93bc54b555c": {
+          "type": "column",
+          "settings": {
+            "collection": "sea-salt",
+            "title": "",
+            "text": ""
+          }
+        },
+        "660163d4-47b1-45cb-bc1e-be47576392b0": {
+          "type": "column",
+          "settings": {
+            "collection": "quinoa",
+            "title": "",
+            "text": ""
+          }
+        },
+        "e4236e30-320a-4dc6-bb6c-362f070cca20": {
+          "type": "column",
+          "settings": {
+            "collection": "raspberry-leaf",
+            "title": "",
+            "text": ""
+          }
+        },
+        "ca467a22-2f2d-4107-a95c-4f1a71780468": {
+          "type": "column",
+          "settings": {
+            "collection": "rosemary",
+            "title": "",
+            "text": ""
+          }
+        },
+        "2d439a76-9cab-42e1-90a2-f63783d59614": {
+          "type": "column",
+          "settings": {
+            "collection": "sacha-inchi",
+            "title": "",
+            "text": ""
+          }
+        },
+        "e93600c1-12d2-4af2-b7ce-4a765640331b": {
+          "type": "column",
+          "settings": {
+            "collection": "shea-butter",
+            "title": "",
+            "text": ""
+          }
+        },
+        "c1a1d1d0-7f2f-4bce-a74a-b458b3d7121a": {
+          "type": "column",
+          "settings": {
+            "collection": "star-anise",
+            "title": "",
+            "text": ""
+          }
+        },
+        "eca984d9-d3b1-463d-bfb9-3a85c720e368": {
+          "type": "column",
+          "settings": {
+            "collection": "sugarcane",
+            "title": "",
+            "text": ""
+          }
+        },
+        "25391cf2-4f9b-4b2f-a343-c500f5214276": {
+          "type": "column",
+          "settings": {
+            "collection": "sunflower-seed",
+            "title": "",
+            "text": ""
+          }
+        },
+        "63a6acc9-03b7-4d9d-a8d6-c255c553355a": {
+          "type": "column",
+          "settings": {
+            "collection": "vanilla",
+            "title": "",
+            "text": ""
           }
         }
       },
       "block_order": [
-        "66322806-40af-4264-81e8-3eef9833cb59",
-        "63cb6efb-e3c3-45c9-b664-8e23b3c3104a",
-        "f6fe0746-fe01-4695-8e6a-2dae55c786aa"
+        "50d915c2-0030-4b38-ac82-478af6c3c280",
+        "920e1ef2-c69c-4c32-8a4c-f003836e65ef",
+        "3bbfea89-e650-457f-8a37-30ad2ffdb4ea",
+        "b5ae89b0-9864-4cb1-9634-0ec79bbce58d",
+        "caa67f2a-fb6d-4f29-9540-6c584119e949",
+        "5a2664f9-cc72-4bc2-8ce2-0c1201878b88",
+        "1ef500e1-bdc4-414a-bd62-88f6dd25c355",
+        "d1895b6e-26d6-4af1-be1a-f81f86580f1b",
+        "417e5258-2141-4a46-a7d0-8d1eaca18ea5",
+        "f2ee8769-ce2c-494b-9bb5-5a9c88a5deb4",
+        "14e41342-a2be-4a1b-bed8-d4d72b3b39b6",
+        "081384ac-596c-4140-b8cd-93c35c5e7c91",
+        "3257cbc4-0a8b-4846-b9e9-ac79edff28a8",
+        "e29ff6bf-4d10-4fd6-86ce-0498f16b77a3",
+        "f4683d78-089a-4848-b1f0-006d17bda8bf",
+        "3d6413ab-010b-4210-a674-63d2dce68b92",
+        "13dcebef-1395-4389-8569-d4d0e1532bd6",
+        "2343623b-0677-411b-9c3d-788a0d0d2da3",
+        "8adb8232-a194-491d-b6c7-e93bc54b555c",
+        "660163d4-47b1-45cb-bc1e-be47576392b0",
+        "e4236e30-320a-4dc6-bb6c-362f070cca20",
+        "ca467a22-2f2d-4107-a95c-4f1a71780468",
+        "2d439a76-9cab-42e1-90a2-f63783d59614",
+        "e93600c1-12d2-4af2-b7ce-4a765640331b",
+        "c1a1d1d0-7f2f-4bce-a74a-b458b3d7121a",
+        "eca984d9-d3b1-463d-bfb9-3a85c720e368",
+        "25391cf2-4f9b-4b2f-a343-c500f5214276",
+        "63a6acc9-03b7-4d9d-a8d6-c255c553355a"
       ],
       "settings": {
-        "enable_section": true
+        "title": "Star Ingredients",
+        "heading_size": "h2",
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "column_alignment": "center",
+        "columns_mobile": "2",
+        "p_image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "p_columns_desktop": 4,
+        "p_columns_mobile": "2",
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     }
   },
   "order": [
     "main",
-    "165027074635c9ac4b",
-    "1650271980cd32b2ef"
+    "ingredients"
   ]
 }

@@ -67,7 +67,7 @@
 
         {%- when 'share' -%}
           <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
-            {%- comment  -%}
+            {%- comment -%}
             <share-button class="share-button" {{ block.shopify_attributes }}>
               <button class="share-button__button hidden">
                 {% render 'icon-share' %}
@@ -123,7 +123,7 @@
               </a>
             </li>
             <li class="list-social__item">
-              <a class="link list-social__link" target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}">
+              <a class="link list-social__link" target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | image_url: width: 1024, height: 1024 }}&amp;description={{ share_title | url_param_escape }}">
                 {% render 'icon-pinterest' %}                
                 <span class="visually-hidden">Pin on Pinterest</span>
               </a>
@@ -329,8 +329,7 @@
       "name": {{ shop.name | json }}
     }
   }
-  </script>
-
+</script>
 
 {% schema %}
 {

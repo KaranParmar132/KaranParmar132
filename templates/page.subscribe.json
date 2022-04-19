@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "16503663162f795f1d": {
+      "type": "email-signup-banner",
+      "blocks": {
+        "165036631651e7afae-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAY CONNECTED <br>RECEIVE 15% OFF YOUR FIRST ORDER!",
+            "heading_size": "h2"
+          }
+        },
+        "165036631651e7afae-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p><strong>Subscribe to stay updated and receive regular promotional offers! <\/strong><\/p>",
+            "text_style": "body"
+          }
+        },
+        "165036631651e7afae-2": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "165036631651e7afae-0",
+        "165036631651e7afae-1",
+        "165036631651e7afae-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/prairie-woman-at-sunset_7460b639-b337-4d78-8053-ef6c85fc64bb.jpg",
+        "image_overlay_opacity": 0,
+        "show_background_image": true,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16503663162f795f1d"
+  ]
+}

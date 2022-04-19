@@ -21,3 +21,39 @@
   width: 52.5rem;
   height: 52.5rem;
 }
+
+/*=== Section FAQ ===*/
+.section--faq .list-unstyled{
+  position: sticky;
+  top:16rem;
+}
+.section--faq .list-unstyled li{
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+.section--faq .list-unstyled li .link{
+  padding: 1.5rem 3rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .section--faq .grid__list {
+    width: 30rem;
+  }
+  .section--faq .grid__list-content {
+    width:calc((100% - 35rem) - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+
+/*=== Section Ingredients ===*/
+.collection--slider .multicolumn-card__image-wrapper{
+  width: 100%;
+   max-width: 40rem;
+   margin: 0 auto;
+}
+.collection--slider .multicolumn-card{
+  height: inherit !important;
+}
+.collection--slider .multicolumn-card .button{
+  margin: 0;
+}

@@ -92,11 +92,11 @@
 .collapsible-content summary:hover {
   background: rgba(var(--color-foreground), 0.04);
 }
-
+/*
 .collapsible-content summary:hover .accordion__title {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-}
+}*/
 
 /* check for flexbox gap in older Safari versions */
 @supports not (inset: 10px) {
@@ -113,5 +113,77 @@
     .collapsible-content__grid--reverse .collapsible-content__grid-item {
       padding-left: 7rem;
     }
+  }
+}
+
+
+/*-----*/
+.collapsible-tabs{
+  display: flex;
+  align-items: center;
+  /*justify-content: space-evenly;*/
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  margin-bottom: 4rem;
+  padding: .5rem 2rem 0;
+  position: relative;
+  flex-wrap: inherit;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;    
+  gap: 1.5rem;
+}
+.collapsible-tabs .accordion__title{
+  background: transparent;
+  border: 0;
+  font-weight: bold;
+  letter-spacing: .2em;
+  padding: 1rem 2.5rem;
+  border-top-left-radius: .4rem;
+  border-top-right-radius: 0.4rem;
+  border: 0.1rem solid transparent;
+  margin-bottom: -.1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+}
+.collapsible-tabs .accordion__title.open,.collapsible-tabs .accordion__title:hover{
+  border-color: rgba(var(--color-foreground), 0.08);  
+}
+.collapsible-contents > .collapsible-content{
+  opacity: 1;
+  transition: opacity 0.1s linear;
+}
+.collapsible-contents > .collapsible-content:not(.open){  
+  display: none;
+  opacity: 0;
+}
+
+.collapsible-content__grid-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  /*padding: 0 5rem;*/
+}
+
+.collapsible-content__grid-content mark{
+  background-color: transparent;
+  color: rgb(177, 150, 92);
+}
+
+.collapsible-content__grid-content .rte{
+  max-width: 80rem;  
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-tabs{
+    gap: 2rem;
+  }
+  .collapsible-tabs .accordion__title{
+    padding: 1rem 5rem;
+  } 
+  .collapsible-content__grid-content{
+    padding: 0 5rem;
   }
 }

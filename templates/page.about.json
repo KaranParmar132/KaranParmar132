@@ -1,15 +1,112 @@
 {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
-        }
+  "sections": {
+    "16503499740805231d": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "cover_image": "shopify:\/\/shop_images\/video.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=lIqsrxl4VkE",
+        "description": "About Rahua",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "order": [
-      "main"
-    ]
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "16503499768a3c4410": {
+      "type": "page-about",
+      "blocks": {
+        "1650349976dcc01f6d-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Our Story",
+            "row_content": "",
+            "page": "",
+            "row_content_1": "<p>Rahua products—known for their pure ingredients and unparalleled performance—would not be available today if not for a marvelous confluence of events. Fabian Lliguin, a renowned hairstylist and colorist in New York City was visiting the Amazon rainforest as an environmentalist, educating indigenous people about their land rights and human rights when he realized he was surrounded by women with fantastically long, lustrous hair that cascaded past their waists.<\/p>",
+            "image_1": "shopify:\/\/shop_images\/jungle_river_24a73522-3e4c-4db6-92f0-0480dfe4a7c4.jpg",
+            "desktop_layout_1": "image_first",
+            "row_content_2": "<p><strong>AND THE SECRET?<\/strong><\/p><p>The secret, the women told Fabian, was rahua oil. For centuries the members of the tribe, who live deep within the rainforest, had relied on this oil to nourish their hair and skin.<\/p><p>The women gave Fabian one bottle of rahua oil, which he carefully transported back to New York in his suitcase. In his salon on Fifth Avenue, he decided—as an experiment, and without any expectations—to use the oil as a treatment for a client with extremely dry, damaged hair. After 10 minutes, her hair was completely transformed: from brittle and lifeless to healthy, shiny, and bouncy. Fabian was as shocked as his client. Here was solid proof that this ingredient, used for centuries, produced tangible results.<\/p><p>Fabian knew he had something very special on his hands and knew too that he needed to handle it with respect. Rahua oil was -and is- produced by the Quechua-Shuar tribe in the same complex, ritualistic, and sustainable fashion it has been for generations. Fabian, who had long worked to support the rainforest’s indigenous people, didn’t want to disrupt this process.<\/p>",
+            "image_2": "shopify:\/\/shop_images\/fisherman_a3994639-7c05-4446-93ed-879870ff5e3c.jpg",
+            "desktop_layout_2": "image_second",
+            "row_content_3": "<p>In 2008 Anna Ayers—Fabian’s wife and business partner—came onboard, joining her expertise as a fashion designer and New York-based trend forecaster to Fabian’s as a hairstylist and colorist to design a purposeful beauty experience for consumers around the world. Together they launched the Rahua brand, drawing on the wisdom of a legendary people to formulate a singular line of innovative, plant-based products to heal, nourish, beautify, and transform.<\/p><p>Today, more than 500 families from the Quechua-Shuar, Achuar, and neighboring tribes work with Fabian and Anna to cultivate the rainforest grown ingredients used in the<a href=\"https:\/\/rahua.com\/collections\/hair\">Rahua hair care<\/a> and <a href=\"https:\/\/rahua.com\/collections\/body\">body care<\/a> collections.<\/p>",
+            "image_3": "shopify:\/\/shop_images\/quichua_woman_ad9a2432-0dcd-4492-9f57-6e26f0307777.jpg",
+            "desktop_layout_3": "image_first",
+            "row_content_4": "",
+            "desktop_layout_4": "image_first",
+            "row_content_5": "",
+            "desktop_layout_5": "image_second"
+          }
+        },
+        "1650349976dcc01f6d-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Our Products",
+            "row_content": "",
+            "page": "",
+            "row_content_1": "<p><strong>CLEAN, EFFECTIVE & SUSTAINABLE<\/strong><\/p><p>Rahua is Rainforest Grown Beauty<\/p><p>Named for the oil that has beautified the hair of Amazonian women for centuries, Rahua uses powerful rainforest ingredients to craft products for hair and skin that heal and transform.<\/p><p>Our founders Fabian Lliguin and Anna Ayers believe that caring for your hair and skin with clean, non-toxic formulations is an essential part of overall health. That’s why each Rahua product relies on plants—not chemicals—to provide a superior level of performance.<\/p><p>So many formulations on the market offer effects that don’t last and can even create new problems. Rahua doesn’t cover up—it corrects with products that deeply penetrate to leave your hair strong and shiny and your skin and scalp soothed, calmed, and restored. And because Rahua’s formulations are highly concentrated, you will use less to get superior results.<\/p>",
+            "image_1": "shopify:\/\/shop_images\/quichua_girls_36abc634-5332-4d28-b18d-07ddf1f69480.jpg",
+            "desktop_layout_1": "image_second",
+            "row_content_2": "<p>Everything we put on our hair, skin, and scalp is absorbed into our bodies. This is why all of our products are made with plant-derived and organic ingredients, are vegan and cruelty-free and contain no parabens, sulfates, or gluten.<\/p><p>Scented with the exotic fragrance of organic Palo Santo oil and featuring the potent reparative and restorative Rahua, Morete, and Sacha Inchi oils, Rahua products offer a luxurious experience and lasting results that have created a cult following on five continents.<\/p>",
+            "image_2": "shopify:\/\/shop_images\/saltSprayGalapagos_7609bba1-7024-44a2-bbf4-7aa0a3f5e7b1.jpg",
+            "desktop_layout_2": "image_second",
+            "row_content_3": "",
+            "desktop_layout_3": "image_second",
+            "row_content_4": "",
+            "desktop_layout_4": "image_second",
+            "row_content_5": "",
+            "desktop_layout_5": "image_second"
+          }
+        },
+        "1650349976dcc01f6d-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Our Founders",
+            "row_content": "",
+            "page": "",
+            "row_content_1": "<p><strong>ANNA AYERS<\/strong><\/p><p>Growing up surrounded by the green, rolling hills and wide-open spaces of northeast Georgia, Anna spent her childhood riding her bike, picknicking, and running barefoot in the grass. Her early interest in fashion and art led her to the Savannah College of Art and Design, and after graduating she moved to New York where she worked in fashion design and trend forecasting at Edelkoort Inc. Surrounded by concrete, this descendant of farmers and gardeners began to realize just how much growing up in the country had shaped her appreciation for nature. When she met Fabian and traveled with him to the Amazon rainforest she was struck by the beauty of the place and the warmth of the people who were connected to the land in a way she had never witnessed. Witnessing how their land was under siege, “It really hit my heart and made me want to do something,\" says Anna. \"We need people to know how beautiful, precious and important this place is.”<\/p><p><strong>[highlight]We make products that reconnect us with nature and give us the opportunity to re-think how we're impacting the planet.[\/highlight]<\/strong><br\/>—Anna<\/p>",
+            "image_1": "shopify:\/\/shop_images\/AnnaAyers_e06ef924-ad03-4a70-a05c-6525e9010e06.jpg",
+            "desktop_layout_1": "image_first",
+            "row_content_2": "<p><strong>FABIAN LLIGUIN<\/strong><\/p><p>Fabian grew up in a small port city in Ecuador teeming with natural life. After school he and his friends swam and caught crabs in the mangroves; he earned pocket money selling tamarinds from the tree in his family’s backyard, and his family took occasional trips to the Amazon. “Nature was so wonderful to me,” says Fabian. Both of his parents were hairdressers and he adopted the profession early on. After serving in the military and sailing international waters as a merchant marine, he moved to New York where he opened his own salon on Fifth Avenue. After taking several trips to the Galapagos, he established opportunities there for local people to participate in the burgeoning eco-tourism economy. At the same time, he began traveling regularly to the Amazon rainforest where he saw firsthand the destruction wrought by petroleum companies. Working in tandem with local tribes, he worked to support indigenous people by bringing in computers and establishing courses in English and computer and financial literacy. “The people who live in the rainforest have protected it for thousands of years,” he says. “If we strengthen and support them, they will stay and preserve it forever.”<\/p><p><strong>[highlight]We created the Rahua brand to preserve and honor unique cultural rituals and traditional, sustainable ways of life that protect the rainforest and its people.<br\/>—Fabian[\/highlight]<\/strong><\/p>",
+            "image_2": "shopify:\/\/shop_images\/FabianLliguin_fde20248-d24a-4fdb-9855-f159f8de2951.jpg",
+            "desktop_layout_2": "image_second",
+            "row_content_3": "",
+            "desktop_layout_3": "image_second",
+            "row_content_4": "",
+            "desktop_layout_4": "image_second",
+            "row_content_5": "",
+            "desktop_layout_5": "image_second"
+          }
+        }
+      },
+      "block_order": [
+        "1650349976dcc01f6d-0",
+        "1650349976dcc01f6d-1",
+        "1650349976dcc01f6d-2"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "16503499740805231d",
+    "main",
+    "16503499768a3c4410"
+  ]
 }
-  
