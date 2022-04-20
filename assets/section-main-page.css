@@ -43,17 +43,3 @@
     width:calc((100% - 35rem) - var(--grid-desktop-horizontal-spacing) / 2);
   }
 }
-
-
-/*=== Section Ingredients ===*/
-.collection--slider .multicolumn-card__image-wrapper{
-  width: 100%;
-   max-width: 40rem;
-   margin: 0 auto;
-}
-.collection--slider .multicolumn-card{
-  height: inherit !important;
-}
-.collection--slider .multicolumn-card .button{
-  margin: 0;
-}
