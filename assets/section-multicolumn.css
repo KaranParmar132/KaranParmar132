@@ -224,5 +224,21 @@
 @media screen and (min-width: 990px) {
   .multicolumn-list__item--empty {
     display: list-item;
-  }
+  }  
+.multicolumn slider-component.slider-component-full-width {
+    padding: 0 4rem;
+}
+}
+
+
+.multicolumn .full-unstyled-link:after {
+  bottom: 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
