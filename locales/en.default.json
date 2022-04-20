@@ -206,8 +206,8 @@
     "contact": {
       "form": {
         "title": "Contact form",
-        "name": "Name",
-        "email": "Email",
+        "name": "Your name",
+        "email": "Your email",
         "phone": "Phone number",
         "inquiry": "Inquiry Type",
         "order": "Order Number",
