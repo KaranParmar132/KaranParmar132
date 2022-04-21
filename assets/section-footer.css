@@ -552,10 +552,14 @@ flex-wrap: wrap;
   text-decoration: none;
 }
 .footer__extra ul li .link:hover{
+  color: #2f2f2f;
   text-decoration: underline;
 }
 .footer-block__newsletter .newsletter-form__field-wrapper .field{
   flex-direction: column;  
+}
+.footer-block__newsletter .newsletter-form__field-wrapper .field__input{
+background: transparent;
 }
 .footer-block__newsletter .newsletter-form__field-wrapper .button{
   margin-top: 2rem;

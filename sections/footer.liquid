@@ -209,9 +209,9 @@
                         {%- endcomment -%}
                         </div>
                         <div class="field field-none">
-                        <button type="submit" class="button button--full-width" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
-                          <span>{{ 'newsletter.button_label' | t }}</span>
-                        </button>
+                          <button type="submit" class="button button--full-width" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                            <span>Sign up</span>
+                          </button>
                       </div>
                         {%- if form.errors -%}
                           <small class="newsletter-form__message form__message" id="ContactFooter-error">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
@@ -282,7 +282,7 @@
               
               <div class="field field-none">
                 <button type="submit" class="button button--full-width" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
-                  <span>{{ 'newsletter.button_label' | t }}</span>
+                  <span>Sign up</span>
                 </button>
               </div>
                 {%- if form.errors -%}

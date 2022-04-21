@@ -79,6 +79,7 @@
 .mega-menu__link--active {
   /*color: rgb(var(--color-foreground));*/
   text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 
 .mega-menu__link--active:hover {
@@ -102,7 +103,8 @@
   display: block;
   column-count: 3;
   orphans: 1;
-    widows: 1;
+  widows: 1;
+  box-sizing: border-box;
 }
 .header--top-center .mega-menu__list li{
   width: 100%;
@@ -130,6 +132,7 @@
 .mega-menu__inner .mega-menu__list{
   flex: 1 1 calc(100% - (100% / 4));
   padding-left: 0;
+  padding-bottom: .2rem;
 }
 .mega-menu__inner .mega-menu__blocks{
   width: calc(100% / 4);

@@ -90,3 +90,12 @@ a.pagination__item:hover::after {
 .pagination__item-arrow:hover::after {
   display: none;
 }
+
+@media screen and (max-width: 749px) {
+  .pagination__item {
+    padding: 1.4rem;
+  } 
+  .pagination__item .icon-caret{
+    height: 0.8rem;
+  }
+}

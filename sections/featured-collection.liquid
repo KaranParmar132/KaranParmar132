@@ -93,19 +93,21 @@
       {%- if show_mobile_slider or show_desktop_slider -%}
         <div class="slider-buttons no-js-hidden">
           <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}" aria-controls="Slider-{{ section.id }}">{% render 'icon-caret' %}</button>                              
-          <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
+          <div class="small-hide slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
             {%- if section.settings.slider_visual == 'counter' -%}
               <span class="slider-counter--current">1</span>
               <span aria-hidden="true"> / </span>
               <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
               <span class="slider-counter--total">{{ products_to_display }}</span>
             {%- else-%}
-              <div class="slideshow__control-wrapper">
-                {%- for product in section.settings.collection.products limit: 2 -%}
-                  <button class="slider-counter__link_1 slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
-                    <span class="dot"></span>
-                  </button>
-                {%- endfor -%}
+              <div class="slideshow__control-wrapper">                
+                  {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}                        
+            {%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%}            
+            {%- assign r_mobile = forloop.index | modulo: section.settings.columns_mobile -%}            
+              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link{% if r_desktop != 1 and section.settings.columns_desktop > 1 %} large-up-hide{% endif %}{% if r_mobile != 1 and section.settings.columns_mobile > '1' %} small-hide medium-hide{% endif %}" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">               
+                {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}                
+              </button>                        
+            {%- endfor -%}
               </div>
             {%- endif -%}
           </div>
@@ -114,7 +116,7 @@
       {%- endif -%}
     </slider-component>
 
-    {%- if section.settings.show_view_all and more_in_collection -%}
+    {%- if section.settings.show_view_all -%}
       <div class="center collection__view-all medium-up-hide">
         <a href="{{ section.settings.collection.url }}"
           class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
