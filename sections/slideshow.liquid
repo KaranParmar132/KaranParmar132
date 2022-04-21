@@ -93,7 +93,7 @@
     data-speed="{{ section.settings.change_slides_speed }}"
   >
     {%- for block in section.blocks -%}        
-      <div class="slideshow__slide grid__item grid--1-col {% if section.settings.slider_effact == "slide" %}slider__slide{% else %}slider__fade{% endif %}"
+      <div class="slideshow__slide grid__item grid--1-col slider__slide {% if section.settings.slider_effact == "fade" %}slider__fade{% endif %}"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"

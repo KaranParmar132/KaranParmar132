@@ -101,10 +101,8 @@
               <span class="slider-counter--total">{{ products_to_display }}</span>
             {%- else-%}
               <div class="slideshow__control-wrapper">                
-                  {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}                        
-            {%- assign r_desktop = forloop.index | modulo: section.settings.columns_desktop -%}            
-            {%- assign r_mobile = forloop.index | modulo: section.settings.columns_mobile -%}            
-              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link{% if r_desktop != 1 and section.settings.columns_desktop > 1 %} large-up-hide{% endif %}{% if r_mobile != 1 and section.settings.columns_mobile > '1' %} small-hide medium-hide{% endif %}" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">               
+                  {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}                                    
+              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">               
                 {%- if section.settings.slider_visual == 'numbers' -%}{{ forloop.index }}{% else %}<span class="dot"></span>{%- endif -%}                
               </button>                        
             {%- endfor -%}
@@ -376,10 +374,6 @@
         {
           "value": "counter",
           "label": "t:sections.slideshow.settings.slider_visual.options__1.label"
-        },
-        {
-          "value": "numbers",
-          "label": "t:sections.slideshow.settings.slider_visual.options__3.label"
         }
       ],
       "default": "counter",
