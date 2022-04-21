@@ -22,11 +22,11 @@
   <h1 class="main-page-title page-title h2 center">
     {{ page.title | escape }}
   </h1>
-  {%- unless page.content-%}
+  {%- if page.content != blank -%}
   <div class="rte">
     {{ page.content }}
   </div>
-{%- endunless -%}
+{%- endif -%}
 </div>
 
 {% schema %}
