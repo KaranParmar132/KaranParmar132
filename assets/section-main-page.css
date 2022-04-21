@@ -37,6 +37,9 @@
   padding: 1.5rem 3rem;
   width: 100%;
 }
+.section--faq .grid__list-content .title:first-child{
+  margin-top: 0;
+}
 .section--faq .accordion {
   border: 0;
   padding-left: 2.5rem;
