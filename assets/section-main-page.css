@@ -37,12 +37,33 @@
   padding: 1.5rem 3rem;
   width: 100%;
 }
+.section--faq .accordion {
+  border: 0;
+  padding-left: 2.5rem;
+}
+.section--faq .accordion summary{
+  padding: 1rem 0;
+}
+.section--faq .accordion .accordion__title {
+  text-transform: none;
+  max-width: 100%;
+}
+.section--faq summary .icon-caret{
+  height: 0.8rem;
+  right: auto;
+  top: calc(50% - 0.6rem);
+  left: -2.8rem;
+  transform: rotateZ(-90deg) !important;
+  opacity: 0.6;
+}
 
 @media screen and (min-width: 750px) {
   .section--faq .grid__list {
     width: 30rem;
+    max-width: 30rem;
   }
   .section--faq .grid__list-content {
     width:calc((100% - 35rem) - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width:calc((100% - 35rem) - var(--grid-desktop-horizontal-spacing) / 2);
   }
 }

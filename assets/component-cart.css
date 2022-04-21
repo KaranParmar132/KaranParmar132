@@ -230,6 +230,7 @@ cart-items {
 .cart__discount .field input:focus ~ label{
   top: -2rem;
   left: 0;
+  display: none;
 }
 .cart__discount .button{
   height: 3.4rem;

@@ -238,7 +238,7 @@
       "subtotal": "Total:",
       "new_subtotal": "New subtotal",
       "note": "Add Order Note",
-      "checkout": "Check out",
+      "checkout": "Checkout",
       "empty": "Your bag is empty",
       "cart_error": "There was an error while updating your bag. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your bag.",
