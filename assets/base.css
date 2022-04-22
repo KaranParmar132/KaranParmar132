@@ -1895,7 +1895,10 @@ details[open] > .share-button__fallback {
   top: calc(50% - 0.2rem);
   right: calc(var(--inputs-border-width) + 1.5rem);
 }
-
+#ContactForm .select .icon-caret {
+  height: 0.7rem;
+  top: calc(50% - 0.3rem);
+}
 .select__select,
 .customer select {
   cursor: pointer;
@@ -3123,4 +3126,39 @@ details-disclosure > details {
 
 .font-body-bold {
   font-weight: var(--font-body-weight-bold);
+}
+
+
+
+/*=== flickity ==*/
+.with-flickity, .flickity-slideshow{
+  display:block !important;
+}
+.flickity-slideshow .flickity-viewport{
+  width: 100%;
+}
+.flickity-slideshow{
+  outline: none !important;
+  box-shadow: none !important;
+}
+.collection .flickity-slideshow .slider__slide{
+  padding: 0 1rem;
+  /*min-height: 100%;*/
+}
+
+@media screen and (min-width: 750px) {
+  .collection .flickity-slideshow .slider__slide{
+    padding: 0 2rem;
+  }
+}
+@media screen and (min-width: 990px) {
+  .collection .flickity-slideshow .slider__slide{
+    padding: 0 2.5rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+.collection .flickity-page-dots{
+  display: none;
+}
 }

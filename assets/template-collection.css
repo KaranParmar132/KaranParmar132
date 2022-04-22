@@ -58,7 +58,7 @@
 
 
 .collection slider-component.slider-component-full-width {
-  padding: 0 4rem;
+  padding: 0 3rem;
 }
 @media screen and (min-width: 990px) {
   .collection__title--desktop-slider .title {

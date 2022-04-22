@@ -379,10 +379,13 @@ slider-component .slider-counter{
 }*/
 
 slider-component .slider-button{
-  position: absolute;
-  top: calc(45% - 3rem);
+  position: absolute;  
+  top: calc(50% - 1rem);
   transform: translateY(-50%);
   color: rgba(var(--color-foreground), 1);
+}
+.collection  slider-component .slider-button{
+  top: calc(45% - 3rem);
 }
 .slider-button.slider-button--prev{
   left: 0;

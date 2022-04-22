@@ -15,7 +15,7 @@
     </a>
 
     <div data-address>
-      <button
+      <button class="button"
         type="button"
         aria-expanded="false"
         aria-controls="AddAddress"
@@ -93,8 +93,8 @@
             <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
           </div>
           <div>
-            <button><span>{{ 'customer.addresses.add' | t }}</span></button>
-            <button type="reset"><span>{{ 'customer.addresses.cancel' | t }}</span></button>
+            <button class="button"><span>{{ 'customer.addresses.add' | t }}</span></button>
+            <button class="button" type="reset"><span>{{ 'customer.addresses.cancel' | t }}</span></button>
           </div>
         {%- endform -%}
       </div>
@@ -107,7 +107,7 @@
             <h2>{{ 'customer.addresses.default' | t }}</h2>
           {%- endif -%}
           {{ address | format_address }}
-          <button
+          <button class="button"
             type="button"
             id="EditFormButton_{{ address.id }}"
             aria-label="{{ 'customer.addresses.edit_address' | t }} {{ forloop.index }}"
@@ -117,7 +117,7 @@
           >
             <span>{{ 'customer.addresses.edit' | t }}</span>
           </button>
-          <button
+          <button class="button"
             type="button"
             aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
             data-target="{{ address.url }}"
@@ -204,8 +204,8 @@
                 </label>
               </div>
               <div>
-                <button><span>{{ 'customer.addresses.update' | t }}</span></button>
-                <button type="reset"><span>{{ 'customer.addresses.cancel' | t }}</span></button>
+                <button class="button"><span>{{ 'customer.addresses.update' | t }}</span></button>
+                <button class="button" type="reset"><span>{{ 'customer.addresses.cancel' | t }}</span></button>
               </div>
             {%- endform -%}
           </div>

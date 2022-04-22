@@ -230,6 +230,19 @@ slideshow-component:not(.page-width) .slider-buttons {
 display: none;
 }
 
+.slideshow .flickity-page-dots .dot{
+  width: 3rem;
+  height: .3rem;
+  border-radius: 0;
+  border: 0;
+  background-color: rgba(var(--color-foreground),.5);  
+  transform: none !important;
+}
+.slideshow .flickity-page-dots .dot.is-selected{
+  background-color: rgba(var(--color-foreground),1);  
+}
+
+/*
 .slideshow__slide.slider__fade{
   float: left;  
   transition: opacity .6s ease-in-out,z-index .6s ease-in-out,visibility .6s ease-in-out;
@@ -247,3 +260,4 @@ display: none;
   opacity: 1;
   z-index: 2;  
 }
+*/

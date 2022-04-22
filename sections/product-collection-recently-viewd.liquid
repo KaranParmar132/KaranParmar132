@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ 'section-product-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
-
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
 <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-product-recommendations.css' | asset_url | stylesheet_tag }}</noscript>
@@ -56,7 +56,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 
   assign show_desktop_slider = false  
 -%}
-<div data-custom-review-wrapper  class="section--{{ section.id }} featured-products-list-section custom-recently-view">
+<div data-custom-review-wrapper  class="section--{{ section.id }} section-{{ section.id }}-padding featured-products-list-section custom-recently-view">
   {% comment %}
   <div class="color-{{ section.settings.color_scheme }} gradient">
     <product-recommendations class="product-recommendations section-{{ section.id }}-padding isolate collection  collection--full-width" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
@@ -117,9 +117,11 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
     {%- endif -%}        
   </div>
-  <ul class="grid grid--{{section.settings.product_per_row_mobile}}-col grid--{{section.settings.products_per_row}}-col-desktop grid--{{section.settings.products_per_row}}-max-desktop
+  <slider-component class="slider-mobile-gutter slider-component-full-width page-width-full{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}">        
+  <ul class="grid recently-viewed-grid grid grid--2-col grid--4-col-desktop grid--4-max-desktop
              {% if section.blocks.size > 2 and section.settings.swipe_on_mobile%} slider slider--tablet grid--peek{% endif %}" data-custom-recently-product id="custom-recently-view-product-grid" role="list">
   </ul>
+</slider-component>
 </div>
 
 {% comment %}
@@ -164,257 +166,373 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 </script>
 {% endraw %}
 
+<script>
+function setRecentlyViewedProducts() {
+  const productData = {
+    productId: "{{ product.id }}",
+    variantId: "{{ product.variants[0].id }}",
+    variantAvailable: "{{product.variants[0].available }}",
+    productTitle: "{{ product.title }}",
+    productImg: "{{ product.featured_media | img_url: '300x' }}",
+    productSecondaryImage: "{{ product.media[1].src  | img_url: '300x' }}",
+    productPrice: "{{ product.price | money }}",
+    productUrl: "{{ product.url }}",
+    productImageAltText: "{{product.featured_media.alt | escape | default: product.title }}"
+  };
+  const productList = [];
+  let jsonResp, jsonRespArr, jsonRespArrStr;
+  const numberOfProducts = 4;
+  productList.push(productData);
+  const currProductPageTitle = productData.productTitle;
+  const productDataString = JSON.stringify(productList);
+  const localData = localStorage.getItem("recentlyViewedProduct");
 
-<script type="text/javascript">
-  Shopify.Products.recordRecentlyViewed();
-  setTimeout(function(){
-    console.log("logged-in");
-    Shopify.Products.showRecentlyViewed({
-      howManyToShow: 4,
-      wrapperId: 'custom-recently-view-product-grid', 
-      templateId: 'custom-recently-viewed-product-grid-template',
-      onComplete: function() {
-        console.log('success');
-      }
-    })
-},700)
+  if (localData === null) {
+    localStorage.setItem("recentlyViewedProduct", productDataString);
+  } else if (localData) {
+    const oldProductData = localStorage.getItem("recentlyViewedProduct");
+    const countProductData = (oldProductData.match(/productTitle/g) || []).length;
+    const sameProduct = oldProductData.includes(currProductPageTitle);
+    if (countProductData < numberOfProducts && sameProduct == false) {
+      jsonResp = JSON.parse(oldProductData);
+      jsonRespArr = jsonResp.concat(productList);
+      jsonRespArrStr = JSON.stringify(jsonRespArr);
+      localStorage.setItem("recentlyViewedProduct", jsonRespArrStr);
+    } else if (countProductData >= numberOfProducts && sameProduct == false) {
+      jsonResp = JSON.parse(oldProductData);
+     
+      jsonResp.shift();
+      jsonRespArr = jsonResp.concat(productList);
+      jsonRespArr = JSON.stringify(jsonRespArr);
+      localStorage.setItem("recentlyViewedProduct", jsonRespArr);
+    }
+  }
+}
+  {%- if product -%}
+  setRecentlyViewedProducts();
+  {%- endif -%}
+const localViewed = localStorage.recentlyViewedProduct;
+function getRecentlyViewedProducts() {
+  const productData = JSON.parse(localStorage.getItem("recentlyViewedProduct"));
+  const recentlyViewedHtml = [];
+  productData.map(item => {
+    let buttonText = ""
+    let isItemDisabled = "";
+    console.log(item.variantAvailable);
+    item.variantAvailable == "true" ? buttonText = `{{ 'products.product.add_to_cart' | t }}` : buttonText =`{{ 'products.product.sold_out' | t }}`;
+    item.variantAvailable == "false" ? isItemDisabled = "disabled='disabled'" : isItemDisabled = "";
+    recentlyViewedHtml.unshift(`
+    <li class="grid__item ">
+      <div class="card-wrapper underline-links-hover">
+          <div class="card card--standard card--media" style="--ratio-percent: 100.0%;">
+              <div class="card__inner color-background-2 gradient ratio" style="--ratio-percent: 100.0%;">
+                  <div class="card__media">
+                      <div class="media media--transparent media--hover-effect"> 
+                        <img srcset="${item.productImg}" 
+                        src="${item.productImg}" 
+                        sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)" 
+                        alt="${item.productImageAltText}" loading="lazy" 
+                        class="motion-reduce" width="" height=""> 
+
+                        <img srcset="${item.productSecondaryImage}" 
+                        src="${item.productSecondaryImage}" 
+                        sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)" 
+                        alt="${item.productImageAltText}" loading="lazy" class="motion-reduce" width="2048" height="2048">
+                       </div>
+                  </div>
+                  <div class="card__content">
+                      <div class="card__information">
+                          <h3 class="card__heading uppercase"> 
+                            <a href="${item.productUrl}" class="full-unstyled-link"> ${item.productUrl} </a> 
+                          </h3>
+                      </div>
+                      <div class="card__badge card__badge--meta top right"> </div>
+                      <div class="card__badge bottom left"> </div>
+                  </div>
+              </div>
+              <div class="card__content">
+                  <div class="card__information">
+                      <h3 class="card__heading uppercase h4" id="title-template--15877753438458__1650346930daba05e3-7531384602874"> 
+                      <a href="${item.productUrl}" class="full-unstyled-link"> ${item.productTitle} </a> </h3>
+                      <div class="card-information"><span class="caption-large light"></span><span>${item.productPrice}</span> </div>
+                  </div>
+                  <div class="quick-add">
+                      <product-form>
+                          <form method="post" action="/cart/add" id="quick-add-template--15877753438458__1650346930daba05e37531384602874" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
+                          <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
+                          <input type="hidden" name="id" value="${item.variantId}">
+                              <div class="qucik-add-qty"> 
+                              <div class="select">
+                                <select class="quantity select__select" name="quantity" id="${item.productId}-quantity">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                </select> 
+                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor" stroke="currentColor" stroke-width="1"></svg>
+                                <label class="field__label visually-hidden" for="{{ product_form_id }}-quantity">Quantity</label>
+                                </div>
+								<button ${isItemDisabled} id="${item.productId}-submit" type="submit" name="add" class="quick-add__submit button  button--primary" aria-haspopup="dialog" aria-labelledby="${item.productId}-submit title-template--15877753438458__1650346930daba05e3-${item.productId}" aria-live="polite" data-sold-out-message="true">
+								  <span>${buttonText} </span> 
+                                  <span class="sold-out-message hidden"> Sold out </span>
+                                      <div class="loading-overlay__spinner hidden"> 
+                                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                                        </svg> 
+                                      </div>
+                                </button> 
+                              </div>
+                          </form>
+                      </product-form>
+                  </div>
+                  <div class="card__badge bottom left"><span class="badge badge--bottom-left color-inverse">Sold out</span></div>
+              </div>
+          </div>
+      </div>  
+  </li>
+   `);
+  });
+  const newProductData = `${recentlyViewedHtml.join("")}`;
+  const fullContent = document.getElementsByClassName("recently-viewed-grid");
+  fullContent[0].innerHTML = newProductData;
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  getRecentlyViewedProducts();
+});
 
 </script>
 {% schema %}
 {
-"name": "Product-recently-viewed",
-"tag": "section",
-"class": "section",
-"settings": [
-{
-"type": "paragraph",
-"content": "t:sections.product-recommendations.settings.paragraph__1.content"
-},
-{
-"type": "text",
-"id": "heading",
-"default": "You may also like",
-"label": "t:sections.product-recommendations.settings.heading.label"
-},
-{
-"type": "select",
-"id": "heading_size",
-"options": [
-{
-"value": "h3",
-"label": "t:sections.all.heading_size.options__1.label"
-},
-{
-"value": "h2",
-"label": "t:sections.all.heading_size.options__2.label"
-},
-{
-"value": "h1",
-"label": "t:sections.all.heading_size.options__3.label"
-}
-],
-"default": "h1",
-"label": "t:sections.all.heading_size.label"
-},
-{
-"type": "range",
-"id": "products_to_show",
-"min": 2,
-"max": 10,
-"step": 1,
-"default": 4,
-"label": "t:sections.product-recommendations.settings.products_to_show.label"
-},
-{
-"type": "range",
-"id": "columns_desktop",
-"min": 1,
-"max": 5,
-"step": 1,
-"default": 4,
-"label": "t:sections.product-recommendations.settings.columns_desktop.label"
-},
-{
-"type": "select",
-"id": "color_scheme",
-"options": [
-{
-"value": "accent-1",
-"label": "t:sections.all.colors.accent_1.label"
-},
-{
-"value": "accent-2",
-"label": "t:sections.all.colors.accent_2.label"
-},
-{
-"value": "background-1",
-"label": "t:sections.all.colors.background_1.label"
-},
-{
-"value": "background-2",
-"label": "t:sections.all.colors.background_2.label"
-},
-{
-"value": "inverse",
-"label": "t:sections.all.colors.inverse.label"
-}
-],
-"default": "background-1",
-"label": "t:sections.all.colors.label",
-"info": "t:sections.all.colors.has_cards_info"
-},
-{
-"type": "header",
-"content": "t:sections.product-recommendations.settings.header__2.content"
-},
-{
-"type": "select",
-"id": "image_ratio",
-"options": [
-{
-"value": "adapt",
-"label": "t:sections.product-recommendations.settings.image_ratio.options__1.label"
-},
-{
-"value": "portrait",
-"label": "t:sections.product-recommendations.settings.image_ratio.options__2.label"
-},
-{
-"value": "square",
-"label": "t:sections.product-recommendations.settings.image_ratio.options__3.label"
-}
-],
-"default": "adapt",
-"label": "t:sections.product-recommendations.settings.image_ratio.label"
-},
-{
-"type": "checkbox",
-"id": "show_secondary_image",
-"default": false,
-"label": "t:sections.product-recommendations.settings.show_secondary_image.label"
-},
-{
-"type": "checkbox",
-"id": "show_vendor",
-"default": false,
-"label": "t:sections.product-recommendations.settings.show_vendor.label"
-},
-{
-"type": "checkbox",
-"id": "show_rating",
-"default": false,
-"label": "t:sections.product-recommendations.settings.show_rating.label",
-"info": "t:sections.product-recommendations.settings.show_rating.info"
-},
-{
-"type": "checkbox",
-"id": "enable_quick_add",
-"default": false,
-"label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
-},
-{
-"type": "header",
-"content": "t:sections.product-recommendations.settings.header_mobile.content"
-},
-{
-"type": "select",
-"id": "columns_mobile",
-"default": "2",
-"label": "t:sections.product-recommendations.settings.columns_mobile.label",
-"options": [
-{
-"value": "1",
-"label": "t:sections.product-recommendations.settings.columns_mobile.options__1.label"
-},
-{
-"value": "2",
-"label": "t:sections.product-recommendations.settings.columns_mobile.options__2.label"
-}
-]
-},
-{
-"type": "checkbox",
-"id": "swipe_on_mobile",
-"default": false,
-"label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
-},    
-{
-"type": "header",
-"content": "Slider"
-},
-{
-"type": "select",
-"id": "slider_visual",
-"options": [
-{
-"value": "dots",
-"label": "t:sections.slideshow.settings.slider_visual.options__2.label"
-},
-{
-"value": "counter",
-"label": "t:sections.slideshow.settings.slider_visual.options__1.label"
-},
-{
-"value": "numbers",
-"label": "t:sections.slideshow.settings.slider_visual.options__3.label"
-}
-],
-"default": "counter",
-"label": "t:sections.slideshow.settings.slider_visual.label"
-},
-{
-"type": "header",
-"content": "t:sections.all.padding.section_padding_heading"
-},
-{
-"type": "range",
-"id": "padding_top",
-"min": 0,
-"max": 100,
-"step": 4,
-"unit": "px",
-"label": "t:sections.all.padding.padding_top",
-"default": 36
-},
-{
-"type": "range",
-"id": "padding_bottom",
-"min": 0,
-"max": 100,
-"step": 4,
-"unit": "px",
-"label": "t:sections.all.padding.padding_bottom",
-"default": 36
-},    
-{
-"type": "select",
-"id": "border",
-"options": [
-{
-"value": "none",
-"label": "None"
-},
-{
-"value": "top",
-"label": "Border top"
-},
-{
-"value": "bottom",
-"label": "Border bottom"
-},
-{
-"value": "both",
-"label": "Border top and bottom"
-}
-],
-"default": "none",
-"label": "Section Border"
-}
-],
-"presets": [
-{
-"name": "Product-recently-viewed"
-}
-]
+    "name": "Product-recently-viewed",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+    {
+        "type": "paragraph",
+        "content": "t:sections.product-recommendations.settings.paragraph__1.content"
+    },
+    {
+        "type": "text",
+        "id": "heading",
+        "default": "You may also like",
+        "label": "t:sections.product-recommendations.settings.heading.label"
+    },
+    {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+        {
+            "value": "h3",
+            "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__3.label"
+        }],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+    },
+    {
+        "type": "range",
+        "id": "products_to_show",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.product-recommendations.settings.products_to_show.label"
+    },
+    {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.product-recommendations.settings.columns_desktop.label"
+    },
+    {
+        "type": "select",
+        "id": "color_scheme",
+        "options": [
+        {
+            "value": "accent-1",
+            "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+            "value": "accent-2",
+            "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+            "value": "background-1",
+            "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+            "value": "background-2",
+            "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+            "value": "inverse",
+            "label": "t:sections.all.colors.inverse.label"
+        }],
+        "default": "background-1",
+        "label": "t:sections.all.colors.label",
+        "info": "t:sections.all.colors.has_cards_info"
+    },
+    {
+        "type": "header",
+        "content": "t:sections.product-recommendations.settings.header__2.content"
+    },
+    {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+        {
+            "value": "adapt",
+            "label": "t:sections.product-recommendations.settings.image_ratio.options__1.label"
+        },
+        {
+            "value": "portrait",
+            "label": "t:sections.product-recommendations.settings.image_ratio.options__2.label"
+        },
+        {
+            "value": "square",
+            "label": "t:sections.product-recommendations.settings.image_ratio.options__3.label"
+        }],
+        "default": "adapt",
+        "label": "t:sections.product-recommendations.settings.image_ratio.label"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_secondary_image",
+        "default": false,
+        "label": "t:sections.product-recommendations.settings.show_secondary_image.label"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "default": false,
+        "label": "t:sections.product-recommendations.settings.show_vendor.label"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_rating",
+        "default": false,
+        "label": "t:sections.product-recommendations.settings.show_rating.label",
+        "info": "t:sections.product-recommendations.settings.show_rating.info"
+    },
+    {
+        "type": "checkbox",
+        "id": "enable_quick_add",
+        "default": false,
+        "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
+    },
+    {
+        "type": "header",
+        "content": "t:sections.product-recommendations.settings.header_mobile.content"
+    },
+    {
+        "type": "select",
+        "id": "columns_mobile",
+        "default": "2",
+        "label": "t:sections.product-recommendations.settings.columns_mobile.label",
+        "options": [
+        {
+            "value": "1",
+            "label": "t:sections.product-recommendations.settings.columns_mobile.options__1.label"
+        },
+        {
+            "value": "2",
+            "label": "t:sections.product-recommendations.settings.columns_mobile.options__2.label"
+        }]
+    },
+    {
+        "type": "checkbox",
+        "id": "swipe_on_mobile",
+        "default": false,
+        "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+    },
+    {
+        "type": "header",
+        "content": "Slider"
+    },
+    {
+        "type": "select",
+        "id": "slider_visual",
+        "options": [
+        {
+            "value": "dots",
+            "label": "t:sections.slideshow.settings.slider_visual.options__2.label"
+        },
+        {
+            "value": "counter",
+            "label": "t:sections.slideshow.settings.slider_visual.options__1.label"
+        },
+        {
+            "value": "numbers",
+            "label": "t:sections.slideshow.settings.slider_visual.options__3.label"
+        }],
+        "default": "counter",
+        "label": "t:sections.slideshow.settings.slider_visual.label"
+    },
+    {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+    },
+    {
+        "type": "select",
+        "id": "border",
+        "options": [
+        {
+            "value": "none",
+            "label": "None"
+        },
+        {
+            "value": "top",
+            "label": "Border top"
+        },
+        {
+            "value": "bottom",
+            "label": "Border bottom"
+        },
+        {
+            "value": "both",
+            "label": "Border top and bottom"
+        }],
+        "default": "none",
+        "label": "Section Border"
+    }],
+    "presets": [
+    {
+        "name": "Product-recently-viewed"
+    }]
 }
 {% endschema %}

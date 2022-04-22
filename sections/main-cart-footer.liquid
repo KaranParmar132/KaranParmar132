@@ -7,89 +7,108 @@
   <div>
     <div class="cart__footer">
       {%- if section.settings.show_cart_note -%}
-        <cart-note class="cart__note">
-          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
-          <div class="field">          
-          <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
-          </div>
-          {%- unless section.settings.note_content == blank -%}
-          <div class="rte">
-            {{ section.settings.note_content }}
-          </div>
-        {%- endunless -%}
-        </cart-note>
+      <cart-note class="cart__note">
+        <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+        <div class="field">          
+          <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="How can we help you?">{{ cart.note }}</textarea>
+        </div>
+        {%- if section.settings.cart_msg_enable -%}
+        <div class="mt-2">
+          {{ section.settings.cart_msg }}
+        </div>
+        {%- endif -%}
+      </cart-note>
       {%- endif -%}
 
       <div class="cart__blocks">
         {% for block in section.blocks %}
-          {%- case block.type -%}
-            {%- when '@app' -%}
-              {% render block %}
-            {%- when 'subtotal' -%}
-              <div class="js-contents" {{ block.shopify_attributes }}>
-                <div class="totals">
-                  <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
-                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
-                </div>
+        {%- case block.type -%}
+        {%- when '@app' -%}
+        {% render block %}
+        {%- when 'subtotal' -%}
+        <div class="js-contents" data-free-shipping-amount="{{ section.settings.free_shipping_value | times: 100 | default: 0}}"  {{ block.shopify_attributes }}>
+          <div class="totals">
+            <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
+            <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+          </div>
 
-                <div>
-                  {%- if cart.cart_level_discount_applications.size > 0 -%}
-                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                      {%- for discount in cart.cart_level_discount_applications -%}
-                        <li class="discounts__discount discounts__discount--position">
-                          {%- render 'icon-discount' -%}
-                          {{ discount.title }}
-                          (-{{ discount.total_allocated_amount | money }})
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                </div>
+          <div>
+            {%- if cart.cart_level_discount_applications.size > 0 -%}
+            <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+              {%- for discount in cart.cart_level_discount_applications -%}
+              <li class="discounts__discount discounts__discount--position">
+                {%- render 'icon-discount' -%}
+                {{ discount.title }}
+                (-{{ discount.total_allocated_amount | money }})
+              </li>
+              {%- endfor -%}
+            </ul>
+            {%- endif -%}
+          </div>
 
-                <small class="tax-note caption-large rte">
-                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                  {%- elsif cart.taxes_included -%}
-                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
-                  {%- elsif shop.shipping_policy.body != blank -%}
-                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-                  {%- else -%}
-                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
-                  {%- endif -%}
-                </small>
-              </div>
+          <small class="tax-note caption-large rte">
+            {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+            {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            {%- elsif cart.taxes_included -%}
+            {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+            {%- elsif shop.shipping_policy.body != blank -%}
+            {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
             {%- else -%}
-            <div class="cart__shipping right">
-              <div class="rte">
-                <p>You are only <span class="money">$15.00 USD</span> away from Free Shipping!</p>
-              </div>
+            {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+            {%- endif -%}
+          </small>
+        
+        {%- if section.settings.free_shipping_alert -%}
+        {% assign firstStep = section.settings.free_shipping_value | times: 100 | minus: 1500 %}
+        {% assign alertValue = section.settings.free_shipping_value | times: 100 %}
+        <div class="cart__shipping right  {% if cart.total_price > alertValue -%} success{%- endif -%}">
+          <div class="rte">
+            {%- if cart.total_price < firstStep  -%}
+            <div class="alert alert-info" role="alert">
+              Free shipping on orders over {{ alertValue | money_without_trailing_zeros }}
             </div>
-            <div class="cart__discount customer">
-              <div class="field">                    
-                <input type="text" id="discount" name="discount" placeholder="Discount Code">
-                <label for="discount">Discount Code</label> 
-              </div>
-              <button type="button" class="button"><span>Apply</span></button>
+            {%- elsif cart.total_price < alertValue -%}
+            <div class="alert alert-danger" role="alert">
+              You are only {{ alertValue | minus: cart.total_price | money_without_trailing_zeros }} away from Free Shipping!
             </div>
-              <div class="cart__ctas right" {{ block.shopify_attributes }}>
-                <noscript>
-                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
-                    <span>{{ 'sections.cart.update' | t }}</span>
-                  </button>
-                </noscript>                
-                <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
-                  <span>{{ 'sections.cart.checkout' | t }}</span>
-                </button>
-              </div>
+            {%- endif -%}
 
-              {%- if additional_checkout_buttons -%}
-                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                  {{ content_for_additional_checkout_buttons }}
-                </div>
-              {%- endif -%}
-          {%- endcase -%}
+            {%- if cart.total_price > alertValue -%}
+            <div class="alert alert-info " role="alert">
+              Congratulations! You Qualify For Free Shipping!
+            </div>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- endif -%}
+        {%- else -%}
+
+        <div class="cart__discount customer">
+          <div class="field">                    
+            <input type="text" id="discount" name="discount" placeholder="Discount Code">
+            <label for="discount">Discount Code</label> 
+          </div>
+          <button type="button" class="button"><span>Apply</span></button>
+        </div>
+        <div class="cart__ctas right" {{ block.shopify_attributes }}>
+          <noscript>
+            <button type="submit" class="cart__update-button button button--secondary" form="cart">
+              <span>{{ 'sections.cart.update' | t }}</span>
+            </button>
+          </noscript>                
+          <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
+            <span>{{ 'sections.cart.checkout' | t }}</span>
+          </button>
+        </div>
+
+        {%- if additional_checkout_buttons -%}
+        <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+          {{ content_for_additional_checkout_buttons }}
+        </div>
+        {%- endif -%}
+        {%- endcase -%}
         {% endfor %}
-
+        </div>
         <div id="cart-errors"></div>
       </div>
     </div>
@@ -148,6 +167,38 @@
       "id": "note_content",
       "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
       "label": "Note Content"
+    },
+	{
+      "type": "header",
+      "content": "Free Shipping Alert"
+    },
+    {
+      "type": "checkbox",
+      "id": "free_shipping_alert",
+      "label": "Enable free shipping alert",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "free_shipping_value",
+      "label": "Minimum order for free shipping",
+      "default": 75
+    },
+    {
+      "type": "header",
+      "content": "Custom Message"
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_msg_enable",
+      "label": "Enable cart msg",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "cart_msg",
+      "label": "Cart Message",
+      "info": "Extra message to be showed on the cart page."
     }
   ],
   "blocks": [

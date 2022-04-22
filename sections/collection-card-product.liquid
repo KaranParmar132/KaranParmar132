@@ -138,11 +138,15 @@ Usage:
           {%- form 'product', card_product, id: ${id}, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
           <input type="hidden" name="id" value="${id}" disabled>
           <div class="qucik-add-qty">
-            <select class="quantity" name="quantity" id="${id}-quantity">
+            <div class="select">
+            <select class="quantity select__select" name="quantity" id="${id}-quantity">
               {%- for i in (1..6) -%}
                   <option value={{i}}>{{i}}</option>
               {%- endfor -%}
             </select>
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor" stroke="currentColor" stroke-width="1"></svg>
+            <label class="field__label visually-hidden" for="{{ product_form_id }}-quantity">{{ 'products.product.quantity.label' | t }}</label>
+            </div>
             <button
                     id="${id}-submit"
                     type="submit"

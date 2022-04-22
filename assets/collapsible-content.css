@@ -147,6 +147,7 @@
   cursor: pointer;
   white-space: nowrap;
   position: relative;
+  font-size: 1.5rem;
 }
 .collapsible-tabs .accordion__title.open,.collapsible-tabs .accordion__title:hover{
   border-color: rgba(var(--color-foreground), 0.08);  

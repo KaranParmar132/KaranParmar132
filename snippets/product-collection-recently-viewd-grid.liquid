@@ -16,7 +16,7 @@ Usage:
 {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
 
 {%- if card_product and card_product != empty -%}
 {%- liquid
@@ -31,8 +31,7 @@ Usage:
     endif
   -%}
 <div class="card-wrapper underline-links-hover">
-  <div class="card
-              card--{{ settings.card_style }}
+  <div class="card card--{{ settings.card_style }}
               {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
               {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
               {% if extend_height %} card--extend-height{% endif %}
@@ -56,14 +55,15 @@ Usage:
           {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
           {%- if show_secondary_image -%}
-           <img srcset="${product_image}"
-                   src="${product_image}"
+          
+           <img srcset="${media[1].src}"
+                   src="${media[1].src}"
                    sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                   alt="${featured_image.alt}"
+                   alt="${media[1].alt}"
                    loading="lazy"
                    class="motion-reduce"
-                   width="${featured_image.width}"
-                   height="${featured_image.height}"
+                   width="${media[1].width}"
+                   height="${media[1].height}"
                    >
           {%- endif -%}
         </div>
@@ -83,11 +83,11 @@ Usage:
             {% endif %}
         </div>
         <div class="card__badge {{ settings.badge_position }}">          
-          {%- if card_product.available == false -%}
+          {% raw %}{{if !variants[0].available}}{% endraw %}
           <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
-          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+          {% raw %}{{else compare_at_price > price && available }}{% endraw %}
           <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-          {%- endif -%}
+          {% raw %}{{/if}}{% endraw %}
         </div>
       </div>
     </div>
@@ -127,39 +127,50 @@ Usage:
             <span class="visually-hidden">{{ card_product.metafields.reviews.rating_count }} {{ "accessibility.total_reviews" | t }}</span>
           </p>
           {%- endif -%}
-
+          {%- comment -%}
           {% render 'price', product: card_product, price_class: '' %}
+          {%- endcomment -%}
+          <span>{% raw %}{{html Shopify.formatMoney(variants[0].price, Shopify.money_format)}}{% endraw %}</span>
         </div>
       </div>
       {%- if show_quick_add -%}
       <div class="quick-add">
         {%- assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id -%}
+        
+             
+        
         <product-form>
           {%- form 'product', card_product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-          <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" disabled>
+          <input type="hidden" name="id" value="${variants[0].id}" disabled>
           <div class="qucik-add-qty">
-            <select class="quantity" name="quantity" id="{{ product_form_id }}-quantity">
+            <div class="select">
+            <select class="quantity select__select" name="quantity" id="${id}-quantity">
               {%- for i in (1..6) -%}
-                  <option value={{i}}>{{i}}</option>
+                  <option value="{{i}}">{{i}}</option>
               {%- endfor -%}
             </select>
-            <button
-                    id="{{ product_form_id }}-submit"
-                    type="submit"
-                    name="add"
-                    class="quick-add__submit button  button--primary"
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor" stroke="currentColor" stroke-width="1"></svg>
+            <label class="field__label visually-hidden" for="{{ product_form_id }}-quantity">{{ 'products.product.quantity.label' | t }}</label>
+            </div>
+            <button id="${id}-submit" type="submit"
+                    name="add" class="quick-add__submit button  button--primary"
                     aria-haspopup="dialog"
-                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-                    aria-live="polite"
-                    data-sold-out-message="true"
-                    {% if card_product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                    aria-labelledby="${id}-submit title-{{ section_id }}-${id}"
+                    aria-live="polite" data-sold-out-message="true"
+                    {% raw %}{{if !variants[0].available}}{% endraw %}
+                    disabled
+                    {% raw %}{{/if}}{% endraw %}
                     >
               <span>
-                {%- if card_product.selected_or_first_available_variant.available -%}
+                
+                
+               {% raw %}{{if variants[0].available}}{% endraw %}
                 {{ 'products.product.add_to_cart' | t }}
-                {%- else -%}
+                {% raw %}{{else}}{% endraw %}
                 {{ 'products.product.sold_out' | t }}
-                {%- endif -%}
+                {% raw %}{{/if}}{% endraw %}
+               
+
               </span>
               <span class="sold-out-message hidden">
                 {{ 'products.product.sold_out' | t }}

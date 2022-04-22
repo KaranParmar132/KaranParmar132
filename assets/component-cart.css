@@ -110,7 +110,6 @@ cart-items {
 .cart__note .text-area {
   resize: vertical;
 }
-
 .cart__note:after, .cart__note:hover.cart__note:after,
 .cart__note:before, .cart__note:hover.cart__note:before,
 .cart__note .field__input:focus,
@@ -224,10 +223,10 @@ cart-items {
   left: 1rem;
   font-size: 1.3rem;
 }
-.cart__discount .field input:focus{
+.cart__discount .field input:focus,.cart__discount .field input:not(:placeholder-shown){
   padding: .5rem 1rem;
 }
-.cart__discount .field input:focus ~ label{
+.cart__discount .field input:focus ~ label,.cart__discount .field input:not(:placeholder-shown) ~ label{
   top: -2rem;
   left: 0;
   display: none;
@@ -241,7 +240,7 @@ cart-items {
   padding: 0.75rem 1.25rem;  
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  margin:0;
+  margin:1.5rem 0;
 }
 .cart__shipping{
   color: #721c24;

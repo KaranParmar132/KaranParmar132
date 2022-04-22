@@ -11,7 +11,10 @@
 .rte > p:last-child {
   margin-bottom: 0;
 }
-
+.table-responsive{
+  overflow: auto;
+  max-width: 100%;
+}
 .rte table {
   table-layout: fixed;
 }

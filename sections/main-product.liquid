@@ -796,8 +796,55 @@
     }
   </script>
 </section>
+  {%- comment -%}
+  PRODUCT MEDIA ZOOM
 
-{% schema %}
+  <script>
+    ProductImageZoom = (function(){
+      var selectors = {
+        mediaList :".product__media-list",
+        mediaItem: ".product__media-item",
+      }
+
+
+      function ProductImageZoom(container){
+        this.container = container;
+        console.log(container);
+        this.sliderItems = this.container.querySelectorAll(selectors.mediaItem);
+        this.init();
+      }
+      ProductImageZoom.prototype = Object.assign({}, ProductImageZoom.prototype, {
+        init: function() {
+          console.log("attaching listeners...");
+          this._attachEventListener();
+
+        },
+
+        _attachEventListener: function(){
+          this.sliderItems.forEach((sliderItem)=>{
+            console.log(sliderItem);
+            sliderItem.addEventListener("mouseover", this._onImageHover);
+          });
+          //            this.sliderItems.forEach((sliderItem)=>{
+          //             sliderItem.addEventListener("mouseleave", this._onImageHover.bind(this));
+          //           });
+        },
+
+        _onImageHover: function(e){
+          console.log(e.currentTarget);
+        }
+      });
+
+
+      return ProductImageZoom;
+    })();
+
+    new ProductImageZoom(document.querySelector(".product__media-list"));
+  </script>
+
+  {%- endcomment -%}
+
+  {% schema %}
 {
   "name": "t:sections.main-product.name",
   "tag": "section",

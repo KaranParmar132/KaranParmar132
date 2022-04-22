@@ -24,7 +24,41 @@
   width: 52.5rem;
   height: 52.5rem;
 }
+/*=== ===*/
+.privacy_wrapper h3{
+  font-size: calc(var(--font-heading-scale) * 1.6rem);
+ margin-top: 3.5rem;
+ margin-bottom: 2.5rem;
+ color: #000; 
+}
+.privacy_wrapper .data-table{
+  border-collapse: collapse;
+}
+.privacy_wrapper .data-table thead th,.privacy_wrapper .data-table tbody th{
+  font-weight: normal;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e7e7e7;
+  text-align: left;
+}
 
+.privacy_wrapper .data-table tbody td{
+  border-bottom: 1px solid #e7e7e7;
+  border-left: 1px solid #e7e7e7;
+  
+}
+.privacy_wrapper .data-table td, .privacy_wrapper .data-table th{
+  padding: 1.8rem 1rem;
+}
+@media screen and (max-width: 749px) {
+  .privacy_wrapper .data-table tbody th{
+    white-space: normal;
+    word-break: break-all;
+    min-width: 50vw;
+  }
+  .privacy_wrapper .data-table tbody td{
+    min-width: 100vw;
+  }
+}
 /*=== Section FAQ ===*/
 .section--faq .list-unstyled{
   position: sticky;
