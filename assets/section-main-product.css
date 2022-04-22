@@ -1381,4 +1381,10 @@ opacity: 0.5;
   .product__info-wrapper {
     padding-top: 2.5rem;
   }
+  .product-form__input{
+    max-width: 100%;
+  }
+  .product__info-wrapper select.quantity{
+    max-width: 100%;
+  }
 }
