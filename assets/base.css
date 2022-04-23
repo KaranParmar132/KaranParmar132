@@ -3141,11 +3141,16 @@ details-disclosure > details {
   outline: none !important;
   box-shadow: none !important;
 }
+.flickity-viewport {
+  transition: height 0.2s;
+}
 .collection .flickity-slideshow .slider__slide{
   padding: 0 1rem;
   /*min-height: 100%;*/
 }
-
+.collection .flickity-slideshow .slider__slide.fit-height{
+  height: 100%;
+}
 @media screen and (min-width: 750px) {
   .collection .flickity-slideshow .slider__slide{
     padding: 0 2rem;

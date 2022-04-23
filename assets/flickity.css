@@ -41,14 +41,19 @@ https://flickity.metafizzy.co
   cursor: grabbing;
 }
 /* ---- flickity-fade ---- */
-.flickity-enabled.is-fade .flickity-slider > * {
+.flickity-enabled.is-fade .flickity-slider > .slider__slide {
   pointer-events: none;
   z-index: 0;
+  opacity: 0 !important;
+  transition: opacity 0.3s linear;
 }
-
-.flickity-enabled.is-fade .flickity-slider > .is-selected {
+.flickity-enabled.is-fade .media > img, .flickity-enabled.is-fade .media{
+transition: none !important;
+}
+.flickity-enabled.is-fade .flickity-slider > .slider__slide.is-selected {
   pointer-events: auto;
   z-index: 1;
+  opacity: 1 !important;
 }
 
 /* ---- flickity-button ---- */

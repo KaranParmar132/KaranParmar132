@@ -700,9 +700,9 @@ SlideshowComponent = (function(){
   }
   function slideHeight(){
     //console.log('height');
-    this.slider = document.querySelectorAll(".with-flickity .slider__slide");    
-    this.slider.forEach((slider)=>{
-      slider.style.height = "100%";
+    this.slider = document.querySelectorAll(".collection  .with-flickity .slider__slide");        
+    this.slider.forEach((slider)=>{      
+      slider.classList.add('fit-height');
     });
   }
   function SlideshowComponent(){
@@ -714,10 +714,14 @@ SlideshowComponent = (function(){
       _this.effect = false;
       _this.arrows = false;
       _this.dots = false;
+      _this.height = false;
+      _this.drag = true;
       _this.init.dataset.autoplay == 'true' ? _this.autoplay = _this.init.dataset.speed * 1000 :  _this.autoplay = false;
       _this.init.dataset.effect == 'fade' ? _this.effect = true :  _this.effect = false;
       _this.init.dataset.arrows == 'true' ? _this.arrows = true :  _this.arrows = false;
       _this.init.dataset.dots == 'true' ? _this.dots = true :  _this.dots = false;
+      _this.init.dataset.height == 'true' ? _this.height = true :  _this.height = false;
+      _this.init.dataset.drag == 'false' ? _this.drag = false :  _this.drag = true;
       _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),{
         fade:  _this.effect,
         prevNextButtons: _this.arrows,
@@ -726,19 +730,38 @@ SlideshowComponent = (function(){
         pauseAutoPlayOnHover: false,
         wrapAround: true,
         groupCells: true,
-        adaptiveHeight: false,
+        adaptiveHeight: _this.height,
+        draggable: _this.drag,
         arrowShape: { 
           x0: 10,
           x1: 60, y1: 50,
           x2: 60, y2: 0,
           x3: 30
-        }        
-      });
+        }       
+      });            
+    });    
+    window.addEventListener('resize', function(event) {
+    _this.slider.resize()
+  }, true);
+  }  
+  setTimeout(function() {
+    slideHeight()
+  }, 1000);
 
-    });
-  }
+  window.addEventListener('resize', function(event) {
+    this.slider = document.querySelectorAll(".collection  .with-flickity .slider__slide");
+    this.slider.forEach((slider)=>{      
+      slider.classList.remove('fit-height');
+    });  
+    setTimeout(function() {
+      slideHeight()
+    }, 500);
+  }, true);
+
   
+
   return SlideshowComponent;
+  
 })();
 
 
