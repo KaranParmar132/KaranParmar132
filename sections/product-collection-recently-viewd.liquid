@@ -16,6 +16,19 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+<style>
+  .recently-viewed-grid:after {
+    content: 'flickity';
+    display: none;
+  }
+
+  @media screen and ( min-width: 768px ) {
+    .recently-viewed-grid:after {
+      content: '';
+    }
+  }
+</style>
+
 {%- style -%}
 .section-{{ section.id }}-padding {
 padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -39,6 +52,7 @@ padding-top: {{ section.settings.padding_top }}px;
 padding-bottom: {{ section.settings.padding_bottom }}px;
 }
 }
+
 {%- endstyle -%}
 
 {%- liquid

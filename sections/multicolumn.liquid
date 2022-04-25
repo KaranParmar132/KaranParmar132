@@ -120,6 +120,7 @@
             </div>
           </li>
         {%- endfor -%}
+        {%- if section.blocks.size < 5 -%}
         {%- for block in section.blocks -%}
           {%- assign empty_column = '' -%}
           {%- if block.settings.image == blank and block.settings.title == blank and block.settings.text == blank and block.settings.link_label == blank -%}
@@ -182,6 +183,7 @@
             </div>
           </li>
         {%- endfor -%}
+      {%- endif -%}
       </ul>
     </slider-component>
     {%- comment -%}

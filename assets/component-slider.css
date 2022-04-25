@@ -399,3 +399,12 @@ slider-component .slider-button .icon {
 slider-component .slider-button{
   color: #000 !important;
 }
+
+.collection  slider-component .flickity-prev-next-button{
+  top: 22%;
+}
+@media screen and (min-width: 750px) {
+  .collection  slider-component .flickity-prev-next-button{
+    top: 36%;
+  } 
+}

@@ -1,5 +1,6 @@
 .product {
   margin: 0;
+  overflow: hidden;
 }
 
 .product.grid {

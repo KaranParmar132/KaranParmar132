@@ -569,7 +569,7 @@ class SliderComponent extends HTMLElement {
     this.pageTotalElement = this.querySelector('.slider-counter--total');
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
-    
+    if(!this.slider) return;
     
     this.sliderFirstItemNode = this.slider.querySelector('.slider__slide');
     this.sliderControlWrapper = this.querySelector('.slider-buttons');    
@@ -586,7 +586,8 @@ class SliderComponent extends HTMLElement {
     this.slider.addEventListener('scroll', this.update.bind(this));        
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
-    
+
+       
   }
 
   initPages() {

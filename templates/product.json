@@ -231,9 +231,11 @@
         "background_style": "none",
         "button_label": "",
         "button_link": "",
+        "enable_desktop_slider": false,
         "color_scheme": "background-1",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
+        "slider_visual": "counter",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -280,7 +282,7 @@
     "1650346930daba05e3": {
       "type": "product-collection-recently-viewd",
       "settings": {
-        "heading": "Recently viewed items",
+        "heading": "RECENTLY VISITED",
         "heading_size": "h3",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -292,10 +294,10 @@
         "enable_quick_add": true,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "slider_visual": "counter",
+        "slider_visual": "dots",
         "padding_top": 36,
         "padding_bottom": 36,
-        "border": "none"
+        "border": "top"
       }
     }
   },

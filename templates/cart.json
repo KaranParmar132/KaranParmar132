@@ -37,7 +37,6 @@
     },
     "1650005828c62ffb7e": {
       "type": "product-recently",
-      "disabled": true,
       "settings": {
         "heading": "RELATED PRODUCTS",
         "heading_size": "h2",
@@ -59,6 +58,7 @@
     },
     "1650005832826e0aaa": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Related Products",
         "heading_size": "h2",
@@ -69,7 +69,7 @@
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": true,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_style": "solid",
         "color_scheme": "background-1",
         "image_ratio": "adapt",

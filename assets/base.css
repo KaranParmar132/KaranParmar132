@@ -3137,7 +3137,7 @@ details-disclosure > details {
 .flickity-slideshow .flickity-viewport{
   width: 100%;
 }
-.flickity-slideshow{
+.flickity-slideshow, .flickity-enabled{
   outline: none !important;
   box-shadow: none !important;
 }
@@ -3148,7 +3148,7 @@ details-disclosure > details {
   padding: 0 1rem;
   /*min-height: 100%;*/
 }
-.collection .flickity-slideshow .slider__slide.fit-height{
+.flickity-enabled .fit-height{
   height: 100%;
 }
 @media screen and (min-width: 750px) {
@@ -3166,4 +3166,7 @@ details-disclosure > details {
 .collection .flickity-page-dots{
   display: none;
 }
+}
+.flickity-enabled{
+  display: block !important;
 }
