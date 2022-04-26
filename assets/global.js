@@ -105,11 +105,11 @@ function trapFocus(container, elementToFocus = container) {
 }
 
 // Here run the querySelector to figure out if the browser supports :focus-visible or not and run code based on it.
-try {
-  document.querySelector(":focus-visible");
-} catch(e) {
-  focusVisiblePolyfill();
-}
+// try {
+//   document.querySelector(":focus-visible");
+// } catch(e) {
+//   focusVisiblePolyfill();
+// }
 
 function focusVisiblePolyfill() {
   const navKeys = ['ARROWUP', 'ARROWDOWN', 'ARROWLEFT', 'ARROWRIGHT', 'TAB', 'ENTER', 'SPACE', 'ESCAPE', 'HOME', 'END', 'PAGEUP', 'PAGEDOWN']
