@@ -743,7 +743,7 @@ SlideshowComponent = (function(){
       });
       
       setTimeout(function(){
-        _this.slider.style.visibility = "visible";
+        slideshowElement.style.visibility = "visible";
       },2000)
       
     });    
