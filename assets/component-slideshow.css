@@ -9,6 +9,13 @@ slideshow-component {
     padding-bottom: 3rem;
   }
 }
+slideshow-component .slideshow.banner.flickity-slideshow:not(.flickity-enabled) {
+  visibility: hidden; 
+}
+
+slideshow-component .slideshow.banner.flickity-slideshow.flickity-enabled {
+  visibility: visible; 
+}
 
 slideshow-component .slideshow.banner {
   flex-direction: row;
@@ -16,6 +23,10 @@ slideshow-component .slideshow.banner {
   margin: 0;
   gap: 0;
 }
+
+
+
+
 
 .slideshow__slide {
   padding: 0;
