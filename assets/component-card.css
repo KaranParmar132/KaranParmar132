@@ -394,4 +394,4 @@
   }
 }
 
-.card-wrapper:hover .card__content .card__badge{ display:none;}
+.card-wrapper:hover .card__inner .card__content .card__badge{ display:none;}
