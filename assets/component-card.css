@@ -217,7 +217,7 @@
   .card .media.media--hover-effect > img:only-child,
   .card-wrapper .media.media--hover-effect > img:only-child {
     transition: transform var(--duration-long) ease;
-  }
+      }
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
@@ -225,40 +225,42 @@
   }
 
   .card-wrapper:hover
-    .media.media--hover-effect
-    > img:first-child:not(:only-child) {
+  .media.media--hover-effect
+  > img:first-child:not(:only-child) {
     opacity: 0;
   }
 
   .card-wrapper:hover .media.media--hover-effect > img + img {
     opacity: 1;
     transition: transform var(--duration-long) ease;
-    transform: scale(1.03);
-  }
+      transform: scale(1.03);
+      }
 
   .underline-links-hover:hover a {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
   }
-  .card-wrapper .price--main{
+
+  .card-wrapper:hover .price--main{
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  .card__badge--meta img{
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+.card-wrapper .price--main{
     opacity: 0;
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
     -webkit-transition: all .35s ease-in-out;
     transition: all .35s ease-in-out;
   }
-
-.card-wrapper:hover .price--main{
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
 }
-.card__badge--meta img{
-  width: 10rem;
-  height: 10rem;
-}
-}
-
 .card--standard.card--media .card__inner .card__information,
 .card--standard.card--text > .card__content .card__heading,
 .card--standard > .card__content .card__badge,
