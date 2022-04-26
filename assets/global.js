@@ -750,7 +750,7 @@ SlideshowComponent = (function(){
         //           }
         //         }
       });            
-      Flickity.data(_this.slider).on( 'lazyLoad', function( event, cellElement ) {
+      _this.slider.on( 'lazyLoad', function( event, cellElement ) {
         var img = event.target;
         console.log( event.type, img.src );
         slideshowElement.style.visibility = "visible";	
