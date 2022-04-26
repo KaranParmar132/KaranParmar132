@@ -743,6 +743,7 @@ SlideshowComponent = (function(){
       });
       
       setTimeout(function(){
+        console.log("Hjere.")
         slideshowElement.style.visibility = "visible";
       },2000)
       
