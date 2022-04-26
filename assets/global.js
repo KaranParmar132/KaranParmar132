@@ -724,8 +724,7 @@ SlideshowComponent = (function(){
       _this.init.dataset.dots == 'true' ? _this.dots = true :  _this.dots = false;
       _this.init.dataset.height == 'true' ? _this.height = true :  _this.height = false;
       _this.init.dataset.drag == 'false' ? _this.drag = false :  _this.drag = true;
-      _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),
-                                  {
+      _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),{
         fade:  _this.effect,
         prevNextButtons: _this.arrows,
         pageDots: _this.dots,
@@ -747,18 +746,19 @@ SlideshowComponent = (function(){
             setTimeout(function(){
               slideshowElement.style.visibility = "visible";	
             },1000)
-            
+
           }
         }
       });            
-//       setTimeout(function(){
-      	
-//       });
-//       slideshowElement.style.visibility = "visible";
+      flkty.on( 'lazyLoad', function( event, cellElement ) {
+
+
+
+      });
     });    
     window.addEventListener('resize', function(event) {
-    _this.slider.resize()
-  }, true);
+      _this.slider.resize()
+    }, true);
   }  
   setTimeout(function() {
     slideHeight()
