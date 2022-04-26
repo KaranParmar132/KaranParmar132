@@ -744,7 +744,10 @@ SlideshowComponent = (function(){
         on: {
           ready: function() {
             console.log('Flickity ready');
-            slideshowElement.style.visibility = "visible";
+            setTimeout(function(){
+              slideshowElement.style.visibility = "visible";	
+            },1000)
+            
           }
         }
       });            
