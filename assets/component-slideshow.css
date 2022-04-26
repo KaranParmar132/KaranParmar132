@@ -11,10 +11,12 @@ slideshow-component {
 }
 slideshow-component .slideshow.banner.flickity-slideshow:not(.flickity-enabled) {
   visibility: hidden; 
+  opacity: 0;
 }
 
-slideshow-component .slideshow.banner.flickity-slideshow.flickity-enabled {
-  visibility: visible; 
+slideshow-component .slideshow.banner.flickity-slideshow.flickity-enabled{
+  visibility: visible;
+  opacity: 1;
 }
 
 slideshow-component .slideshow.banner {
