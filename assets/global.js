@@ -739,20 +739,20 @@ SlideshowComponent = (function(){
           x1: 60, y1: 50,
           x2: 60, y2: 0,
           x3: 30
-        },
-        on: {
-          ready: function() {
-            console.log('Flickity ready');
-            setTimeout(function(){
-              slideshowElement.style.visibility = "visible";	
-            },1000)
-
-          }
         }
+        // ,        on: {
+        //           ready: function() {
+        //             console.log('Flickity ready');
+        //             setTimeout(function(){
+        //               slideshowElement.style.visibility = "visible";	
+        //             },1000)
+
+        //           }
+        //         }
       });            
-      flkty.on( 'lazyLoad', function( event, cellElement ) {
+      Flickity.data(_this.slider).on( 'lazyLoad', function( event, cellElement ) {
 
-
+        slideshowElement.style.visibility = "visible";	
 
       });
     });    
