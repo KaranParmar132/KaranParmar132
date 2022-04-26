@@ -740,7 +740,7 @@ SlideshowComponent = (function(){
           x2: 60, y2: 0,
           x3: 30
         }
-        // ,        on: {
+        // ,on: {
         //           ready: function() {
         //             console.log('Flickity ready');
         //             setTimeout(function(){
@@ -750,7 +750,7 @@ SlideshowComponent = (function(){
         //           }
         //         }
       });            
-      _this.slider.on( 'lazyLoad', function( event, cellElement ) {
+      Flickity.data(_this.init).on( 'lazyLoad.flickity', function( event, cellElement ) {
         var img = event.target;
         console.log( event.type, img.src );
         slideshowElement.style.visibility = "visible";	
