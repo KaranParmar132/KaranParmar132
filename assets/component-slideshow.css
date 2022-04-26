@@ -9,12 +9,12 @@ slideshow-component {
     padding-bottom: 3rem;
   }
 }
-slideshow-component .slideshow.banner.flickity-slideshow:not(.flickity-enabled) {
+slideshow-component .flickity-slideshow:not(.flickity-enabled) {
   visibility: hidden; 
   opacity: 0;
 }
 
-slideshow-component .slideshow.banner.flickity-slideshow.flickity-enabled{
+slideshow-component .flickity-slideshow.flickity-enabled{
   visibility: visible;
   opacity: 1;
 }
