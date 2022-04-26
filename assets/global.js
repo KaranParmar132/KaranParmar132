@@ -724,23 +724,23 @@ SlideshowComponent = (function(){
       _this.init.dataset.dots == 'true' ? _this.dots = true :  _this.dots = false;
       _this.init.dataset.height == 'true' ? _this.height = true :  _this.height = false;
       _this.init.dataset.drag == 'false' ? _this.drag = false :  _this.drag = true;
-//       _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),{
-//         fade:  _this.effect,
-//         prevNextButtons: _this.arrows,
-//         pageDots: _this.dots,
-//         autoplay: _this.autoplay,
-//         pauseAutoPlayOnHover: false,
-//         wrapAround: true,
-//         groupCells: true,
-//         adaptiveHeight: _this.height,
-//         draggable: _this.drag,
-//         arrowShape: { 
-//           x0: 10,
-//           x1: 60, y1: 50,
-//           x2: 60, y2: 0,
-//           x3: 30
-//         }
-//       });
+      _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),{
+        fade:  _this.effect,
+        prevNextButtons: _this.arrows,
+        pageDots: _this.dots,
+        autoplay: _this.autoplay,
+        pauseAutoPlayOnHover: false,
+        wrapAround: true,
+        groupCells: true,
+        adaptiveHeight: _this.height,
+        draggable: _this.drag,
+        arrowShape: { 
+          x0: 10,
+          x1: 60, y1: 50,
+          x2: 60, y2: 0,
+          x3: 30
+        }
+      });
       
       setTimeout(function(){
         slideshowElement.style.visibility = "visible";
