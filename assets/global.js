@@ -745,7 +745,7 @@ SlideshowComponent = (function(){
       setTimeout(function(){
         console.log("Hjere.")
         slideshowElement.style.visibility = "visible";
-      },2000)
+      },1000);
       
     });    
     window.addEventListener('resize', function(event) {
