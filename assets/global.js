@@ -740,22 +740,12 @@ SlideshowComponent = (function(){
           x2: 60, y2: 0,
           x3: 30
         }
-        // ,on: {
-        //           ready: function() {
-        //             console.log('Flickity ready');
-        //             setTimeout(function(){
-        //               slideshowElement.style.visibility = "visible";	
-        //             },1000)
-
-        //           }
-        //         }
-      });            
-      Flickity.data(_this.init).on( 'lazyLoad.flickity', function( event, cellElement ) {
-        var img = event.target;
-        console.log( event.type, img.src );
-        slideshowElement.style.visibility = "visible";	
-
       });
+      
+      setTimeout(function(){
+        _this.slider.style.visibility = "visible";
+      },2000)
+      
     });    
     window.addEventListener('resize', function(event) {
       _this.slider.resize()
