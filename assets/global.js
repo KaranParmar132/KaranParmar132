@@ -751,10 +751,10 @@ SlideshowComponent = (function(){
           }
         }
       });            
-      setTimeout(function(){
+//       setTimeout(function(){
       	
-      });
-      slideshowElement.style.visibility = "visible";
+//       });
+//       slideshowElement.style.visibility = "visible";
     });    
     window.addEventListener('resize', function(event) {
     _this.slider.resize()
