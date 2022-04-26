@@ -19,6 +19,16 @@ slideshow-component .flickity-slideshow.flickity-enabled{
   opacity: 1;
 }
 
+slider-component .flickity-slideshow:not(.flickity-enabled) {
+  visibility: hidden; 
+  opacity: 0;
+}
+
+slider-component .flickity-slideshow.flickity-enabled{
+  visibility: visible;
+  opacity: 1;
+}
+
 slideshow-component .slideshow.banner {
   flex-direction: row;
   flex-wrap: nowrap;
