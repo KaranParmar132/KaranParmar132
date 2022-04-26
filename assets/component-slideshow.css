@@ -15,7 +15,7 @@ slideshow-component .flickity-slideshow:not(.flickity-enabled) {
 }
 
 slideshow-component .flickity-slideshow.flickity-enabled{
-  visibility: visible;
+  /*   visibility: visible; */
   opacity: 1;
 }
 
@@ -25,7 +25,7 @@ slider-component .flickity-slideshow:not(.flickity-enabled) {
 }
 
 slider-component .flickity-slideshow.flickity-enabled{
-  visibility: visible;
+  /*   visibility: visible; */
   opacity: 1;
 }
 
