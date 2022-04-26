@@ -710,7 +710,7 @@ SlideshowComponent = (function(){
     var _this = this;
     this.slideshowElement = document.querySelectorAll(selectors.slideshowElement);    
     this.slideshowElement.forEach((slideshowElement)=>{
-//       slideshowElement.style.visibility = "hidden";
+      //       slideshowElement.style.visibility = "hidden";
       _this.init = slideshowElement.querySelector(".flickity-slideshow");      
       _this.autoplay = false;
       _this.effect = false;
@@ -724,7 +724,8 @@ SlideshowComponent = (function(){
       _this.init.dataset.dots == 'true' ? _this.dots = true :  _this.dots = false;
       _this.init.dataset.height == 'true' ? _this.height = true :  _this.height = false;
       _this.init.dataset.drag == 'false' ? _this.drag = false :  _this.drag = true;
-      _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),{
+      _this.slider = new Flickity(slideshowElement.querySelector(".flickity-slideshow"),
+                                  {
         fade:  _this.effect,
         prevNextButtons: _this.arrows,
         pageDots: _this.dots,
@@ -739,9 +740,17 @@ SlideshowComponent = (function(){
           x1: 60, y1: 50,
           x2: 60, y2: 0,
           x3: 30
-        }       
+        },
+        on: {
+          ready: function() {
+            console.log('Flickity ready');
+          }
+        }
       });            
-//       slideshowElement.style.visibility = "visible";
+      setTimeout(function(){
+      	
+      });
+      slideshowElement.style.visibility = "visible";
     });    
     window.addEventListener('resize', function(event) {
     _this.slider.resize()
