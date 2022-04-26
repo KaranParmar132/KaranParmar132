@@ -11,20 +11,9 @@ slideshow-component {
 }
 slideshow-component .flickity-slideshow:not(.flickity-enabled) {
   visibility: hidden; 
-  opacity: 0;
 }
-
-slideshow-component .flickity-slideshow.flickity-enabled{
-  opacity: 1;
-}
-
 slider-component .flickity-slideshow:not(.flickity-enabled) {
   visibility: hidden; 
-  opacity: 0;
-}
-
-slider-component .flickity-slideshow.flickity-enabled{
-  opacity: 1;
 }
 
 slideshow-component .slideshow.banner {
@@ -33,10 +22,6 @@ slideshow-component .slideshow.banner {
   margin: 0;
   gap: 0;
 }
-
-
-
-
 
 .slideshow__slide {
   padding: 0;
