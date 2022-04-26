@@ -710,6 +710,7 @@ SlideshowComponent = (function(){
     var _this = this;
     this.slideshowElement = document.querySelectorAll(selectors.slideshowElement);    
     this.slideshowElement.forEach((slideshowElement)=>{
+      slideshowElement.style.visibility = "hidden";
       _this.init = slideshowElement.querySelector(".flickity-slideshow");      
       _this.autoplay = false;
       _this.effect = false;
@@ -740,6 +741,7 @@ SlideshowComponent = (function(){
           x3: 30
         }       
       });            
+      slideshowElement.style.visibility = "visible";
     });    
     window.addEventListener('resize', function(event) {
     _this.slider.resize()
