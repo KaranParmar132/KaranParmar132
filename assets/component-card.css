@@ -393,3 +393,5 @@
     padding: 0.9rem .2rem;
   }
 }
+
+.card-wrapper:hover .card__content .card__badge{ display:none;}
