@@ -744,6 +744,7 @@ SlideshowComponent = (function(){
         on: {
           ready: function() {
             console.log('Flickity ready');
+            slideshowElement.style.visibility = "visible";
           }
         }
       });            
