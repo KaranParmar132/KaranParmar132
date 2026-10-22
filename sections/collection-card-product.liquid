@@ -135,7 +135,7 @@ Usage:
       <div class="quick-add">
         {%- assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id -%}
         <product-form>
-          {%- form 'product', card_product, id: ${id}, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          {%- form 'product', card_product, id: id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
           <input type="hidden" name="id" value="${id}" disabled>
           <div class="qucik-add-qty">
             <div class="select">
@@ -303,3 +303,15 @@ Usage:
   </div>
 </div>
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- form 'product', card_product, id: ${id}, class: 'form', novalidate: 'novalidate',
+    data-type: 'add-to-cart-form' -%}"
+  to: "{%- form 'product', card_product, id: id, class: 'form', novalidate: 'novalidate',
+    data-type: 'add-to-cart-form' -%}"
+  position: 7406..7522
+{% endcomment %}
